@@ -2,15 +2,23 @@ package com.fmq.common.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.server.PathParam;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springsource.loaded.agent.FalseReturner;
+/**
+ * 测试Controller
+ * @author ljg
+ *
+ */
 @RestController
 // @Controller
 @SpringBootApplication
@@ -20,7 +28,23 @@ public class TestController {
 	public String echo1(@PathVariable("message") String msg) {
 		return "echo  " + msg;
 	}
-
+	
+	/*
+	 * 
+	 * 默认传值
+	 */
+	//@RequestMapping(value = "/say", method = RequestMethod.GET)
+	@GetMapping("/say")
+	public String say(@RequestParam(value="say",required=false ,defaultValue="0") String msg) {
+		return "echo  " + msg;
+	}
+	//http://localhost:8089/mess?msg=1
+	//http://localhost:8089/ec?msg=1
+	@RequestMapping(value = {"/mess","/ec"}, method = RequestMethod.GET)
+	public String echo2(String msg) {
+		return "echo  " + msg;
+	}
+	
 	// http://localhost:8080/esa?num=2
 	@RequestMapping("/esa")
 	public Object nul(int num) {

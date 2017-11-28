@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev #用于区分生产和开发环境的配置
+  #datasource:
+   # driver-class-name: com.mysql.jdbc.Driver
+  #  url: jdbc:mysql://127.0.0.1:3306/test
+  #  username: root
+  #  password: 
+ # jpa:
+ #   hibernate:
+  #    ddl-auto: create  #create 表示在创建时创建一个表
+  #  show-sql: true  #在控制台可以看到sql
+    
