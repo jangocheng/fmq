@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fmq_common</groupId>
+  <artifactId>fmq_common</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>fmq_common</name>
+  <url>http://maven.apache.org</url>
+<!-- jdk 和编码 -->
+	<properties>
+		<jdk.version>1.8</jdk.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<!-- spring boot 所有包 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>1.5.4.RELEASE</version>
+				<type>pom</type> <!-- 导入包 -->
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!-- 打包 依赖关系 -->
+	<build>
+		<finalName>common</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encode>${project.build.sourceEncodeing}</encode>
+				</configuration>
+			</plugin>
+			
+			<plugin>  <!-- 该插件的主要功能是进行项目的打包发布处理 -->
+				 <groupId>org.springframework.boot</groupId>
+    				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.fmq.common.StartApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>				
+				</executions>
+			</plugin>
+			
+		</plugins>
+	</build>
+	
+	
+	<modules>
+		<module>fmq_admin_um</module>
+	</modules>
+</project>
