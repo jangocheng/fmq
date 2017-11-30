@@ -8,5 +8,4 @@ public interface UserInfoService {
 
 	public UserInfoDTO fundUserInfoByUserName(String userName) ;
 
-
 }

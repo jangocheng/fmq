@@ -12,13 +12,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-// @SpringBootApplication 相当于 @EnableAutoConfiguration + @ComponentScan +其他
 public class StartApplication {
 	public static void main(String[] args) throws Exception {
 		Logger logger = LoggerFactory.getLogger(StartApplication.class);
-		logger.info(">>>>> StartApplication 正在启动 <<<<<");
+		logger.info(">>>>> fmq_admin_um StartApplication 正在启动 <<<<<");
 		SpringApplication.run(StartApplication.class, args);
-		logger.info(">>>>> StartApplication 启动完成 <<<<<");
+		logger.info(">>>>> fmq_admin_um StartApplication 启动完成 <<<<<");
 	}
 
 }
