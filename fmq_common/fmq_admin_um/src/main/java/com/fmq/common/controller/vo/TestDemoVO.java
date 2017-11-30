@@ -1,10 +1,12 @@
-package com.fmq.common.dto;
+package com.fmq.common.controller.vo;
 
-import com.fmq.common.base.BaseDTO;
+import com.fmq.common.base.CommonVO;
 
-public class TestDemo extends BaseDTO{
+public class TestDemoVO extends CommonVO{
 
+	
 	private static final long serialVersionUID = 1L;
+	
 	private long id;// 主键.
 	private String name;// 测试名称.
 	public long getId() {
@@ -19,5 +21,5 @@ public class TestDemo extends BaseDTO{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 }

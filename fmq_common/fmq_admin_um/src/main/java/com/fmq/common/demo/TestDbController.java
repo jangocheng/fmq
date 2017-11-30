@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fmq.common.base.BaseController;
 
@@ -19,7 +20,7 @@ import com.fmq.common.base.BaseController;
  * @author ljg
  *
  */
-
+@RestController
 @RequestMapping("/mydb")
 @SpringBootApplication
 public class TestDbController extends BaseController{

@@ -1,11 +1,13 @@
 package com.fmq.common.demo;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fmq.common.base.BaseController;
-import com.fmq.common.dto.TestDemo;
+import com.fmq.common.base.CommonVO;
+import com.fmq.common.controller.vo.TestDemoVO;
 
 @RestController
 @RequestMapping("/demo")
@@ -17,14 +19,14 @@ public class TestDemoController extends BaseController{
      * @return
      */
     @RequestMapping("/getDemo")
-   // @ResponseBody
-    public TestDemo getDemo(){
+    @ResponseBody
+    public CommonVO getDemo(){
     	logger.info("++++++++++++");
-       TestDemo demo = new TestDemo();
-       demo.setId(1);
-       demo.setName("Angel");
-     	logger.info("++++++++++++"+demo.toString());
-       return demo;
+       TestDemoVO vo=new TestDemoVO();
+       vo.setId(1);
+       vo.setName("Angel");
+     	logger.info("++++++++++++"+vo.toString());
+       return vo;
     }
 	
 }

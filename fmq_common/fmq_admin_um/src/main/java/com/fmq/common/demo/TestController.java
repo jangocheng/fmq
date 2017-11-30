@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fmq.common.base.BaseController;
 /**
@@ -25,6 +26,7 @@ import com.fmq.common.base.BaseController;
  */
 
 // @Controller
+@RestController
 @SpringBootApplication
 public class TestController extends BaseController{
 	// http://localhost:8080/echo/message

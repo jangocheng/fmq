@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 public class BaseService {
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	public BaseService() {}
+	
 	public Logger getLogger() {
 		return logger;
 	}

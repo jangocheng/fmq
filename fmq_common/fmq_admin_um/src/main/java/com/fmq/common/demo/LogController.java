@@ -24,9 +24,9 @@ public class LogController extends BaseController{
     }  
     
     public void helpMethod(){  
-        logger.debug("This is a debug message");  
-        logger.info("This is an info message");  
-        logger.warn("This is a warn message");  
-        logger.error("This is an error message");  
+        logger.debug("helpMethod This is a debug message");  
+        logger.info("helpMethod This is an info message");  
+        logger.warn("helpMethod This is a warn message");  
+        logger.error("helpMethod This is an error message");  
     }  
 }  
