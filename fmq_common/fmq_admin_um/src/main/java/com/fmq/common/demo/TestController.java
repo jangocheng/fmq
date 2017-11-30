@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fmq.common.base.BaseController;
+import com.fmq.common.base.CommonVO;
+import com.fmq.common.controller.vo.TestDemoVO;
 /**
  * 测试Controller
  * 和Controller 类注解的使用
@@ -54,7 +57,7 @@ public class TestController extends BaseController{
 	// http://localhost:8080/esa?num=2
 	@RequestMapping("/esa")
 	public Object nul(int num) {
-		return "" + num * 3;
+		return "" + num * 2;
 	}
 	/**
 	 * ip地址0:0:0:0:0:0:0:1
@@ -87,4 +90,23 @@ public class TestController extends BaseController{
 	public String home() {
 		return "home";
 	}
+	
+	
+	 /**
+     * 返回demo数据:
+     * 请求地址：http://127.0.0.1:8089/demo/getDemo
+     * @return
+     */
+    @RequestMapping("/getDemo")
+    @ResponseBody
+    public CommonVO getDemo(){
+    	logger.info("++++++++++++");
+       TestDemoVO vo=new TestDemoVO();
+       vo.setId(1);
+       vo.setName("Angel");
+     	logger.info("++++++++++++"+vo.toString());
+       return vo;
+    }
+	
+	
 }

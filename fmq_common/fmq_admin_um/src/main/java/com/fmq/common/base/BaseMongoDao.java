@@ -42,7 +42,7 @@ public class BaseMongoDao extends AbstractMongoConfiguration  {
 
 	       MongoTemplate mongoTemplate = 
 	           new MongoTemplate(mongo(), mongodbName);
-	       logger.info("连接mongo ："+mongoTemplate.getDb().getName() +" 库");        return mongoTemplate;
+	       logger.info("连接mongo ："+mongoTemplate.getDb().getName() +"  库");        return mongoTemplate;
 
 	   }    
 	   @Override

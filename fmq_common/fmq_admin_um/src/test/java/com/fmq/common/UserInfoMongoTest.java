@@ -16,15 +16,14 @@ import com.fmq.common.dto.UserInfoDTO;
  */
 @SpringBootTest(classes = StartApplication.class)
 @WebAppConfiguration
-public class MongoTest extends BaseTest {
+public class UserInfoMongoTest extends BaseTest {
 
 	@Autowired
 	private UserInfoMongoDAO userDao;
 
-	@Test
+	//@Test
 	public void testSaveUser() throws Exception {
 		UserInfoDTO user = new UserInfoDTO();
-		user.setId("1");
 		user.setUserName("小明");
 		user.setPassWord("fffooo123");
 		user.setIdCard("123456789");
@@ -33,24 +32,24 @@ public class MongoTest extends BaseTest {
 		userDao.saveUser(user);
 	}
 
-	@Test
+	//@Test
 	public void findUserByUserName() {
 		UserInfoDTO user = userDao.findUserByUserName("小明");
 		System.out.println("user is " + user);
 	}
 
-	@Test
+	//@Test
 	public void updateUser() {
 		UserInfoDTO user = new UserInfoDTO();
-		user.setId("1");
-		user.setUserName("天空");
-		user.setPassWord("fffxxxx");
+		user.setId("123");
+		user.setUserName("天空124124");
+		user.setPassWord("fffxxxx124125");
 		userDao.updateUser(user);
 	}
 
 	@Test
 	public void deleteUserById() {
-		userDao.deleteUserById("1");
+		userDao.deleteUserById("5a1fcaecf707160389c7be8b");
 	}
 
 }
