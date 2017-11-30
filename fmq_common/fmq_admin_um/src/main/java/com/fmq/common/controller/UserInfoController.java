@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fmq.common.base.BaseController;
-import com.fmq.common.base.BeanHelper;
 import com.fmq.common.base.CommonVO;
 import com.fmq.common.controller.form.UserInfoForm;
 import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.UserInfoService;
+import com.fmq.common.util.BeanHelper;
 
 @RestController
 public class UserInfoController extends  BaseController{

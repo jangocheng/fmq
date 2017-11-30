@@ -19,7 +19,7 @@ import junit.framework.TestCase;
 public class StartApplicationTest extends BaseTest{
 	//@Autowired  //这两种注解都可以用
 	@Resource
-	private com.fmq.common.demo.TestController testController; 
+	private com.fmq.common.demo.DemoController testController; 
 	
 	@Test
 	public void homeTest() {
