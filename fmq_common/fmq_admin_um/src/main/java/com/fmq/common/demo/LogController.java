@@ -22,7 +22,6 @@ public class LogController extends BaseController{
         this.helpMethod();
         return "OK";  
     }  
-    
     public void helpMethod(){  
         logger.debug("helpMethod This is a debug message");  
         logger.info("helpMethod This is an info message");  
