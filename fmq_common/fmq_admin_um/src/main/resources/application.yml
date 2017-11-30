@@ -9,5 +9,5 @@ spring:
  # jpa:
  #   hibernate:
   #    ddl-auto: create  #create 表示在创建时创建一个表
-  #  show-sql: true  #在控制台可以看到sql
+   # show-sql: true  #在控制台可以看到sql
     

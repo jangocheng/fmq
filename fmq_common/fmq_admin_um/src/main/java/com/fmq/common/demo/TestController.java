@@ -1,28 +1,32 @@
-package com.fmq.common.controller;
+package com.fmq.common.demo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.server.PathParam;
+//import javax.websocket.server.PathParam;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springsource.loaded.agent.FalseReturner;
+//import org.springframework.web.bind.annotation.RestController;
+
+import com.fmq.common.base.BaseController;
 /**
  * 测试Controller
+ * 和Controller 类注解的使用
+ * 
  * @author ljg
  *
  */
-@RestController
+
 // @Controller
 @SpringBootApplication
-public class TestController {
+public class TestController extends BaseController{
 	// http://localhost:8080/echo/message
 	@RequestMapping(value = "/echo/{message}", method = RequestMethod.GET)
 	public String echo1(@PathVariable("message") String msg) {
@@ -59,11 +63,11 @@ public class TestController {
 	 * @param res
 	 * @return
 	 */
-	@RequestMapping("/objet")///Users/ljg/myapp/workspace/common/
+	@RequestMapping("/objet")
 	public String objet(HttpServletRequest req,HttpServletResponse res) {
 		System.out.println( "ip地址"+ req.getRemoteAddr());
 		System.out.println( "客户端编码"+ res.getCharacterEncoding());
-		System.out.println( "真实路径"+ req.getServletContext().getRealPath("/"));
+		System.out.println( "真实路径"+ req.getServletContext().getRealPath("/"));// Users/ljg/myapp/workspace/common/
 		System.out.println( "session"+ req.getSession().getId());
 		
 		return "objet" ;
