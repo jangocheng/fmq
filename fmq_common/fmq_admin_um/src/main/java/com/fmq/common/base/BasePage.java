@@ -1,11 +1,16 @@
 package com.fmq.common.base;
 
+import com.fmq.common.controller.vo.CommonVO;
+
 public class BasePage extends CommonVO{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
+	
 	public int pageNum;
 	public int pageSize;
 	

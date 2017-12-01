@@ -64,4 +64,14 @@ public class UserInfoMongoDAOImpl extends BaseMongoDao implements UserInfoMongoD
 		Query query = new Query(Criteria.where("id").is(id));
 		mongoTemplate.remove(query, UserInfoDTO.class);
 	}
+
+	/**
+	 * 根据密码查询用户信息
+	 */
+	@Override
+	public UserInfoDTO fundUserInfoByPassword(String password) {
+		Query query = new Query(Criteria.where("passWord").is(password));
+		UserInfoDTO user = mongoTemplate.findOne(query, UserInfoDTO.class);
+		return user;
+	}
 }

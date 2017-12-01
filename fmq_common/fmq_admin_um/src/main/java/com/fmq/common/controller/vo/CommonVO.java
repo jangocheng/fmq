@@ -1,4 +1,4 @@
-package com.fmq.common.base;
+package com.fmq.common.controller.vo;
 
 import java.io.Serializable;
 

@@ -18,4 +18,8 @@ public class BaseTest {
 	public void setLogger(Logger logger) {
 		this.logger = logger;
 	}
+	
+	
+	
+	
 }

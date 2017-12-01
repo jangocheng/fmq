@@ -1,7 +1,5 @@
 package com.fmq.common.controller.vo;
 
-import com.fmq.common.base.CommonVO;
-
 public class TestDemoVO extends CommonVO{
 
 	

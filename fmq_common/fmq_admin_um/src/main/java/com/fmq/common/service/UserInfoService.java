@@ -8,4 +8,6 @@ public interface UserInfoService {
 
 	public UserInfoDTO fundUserInfoByUserName(String userName) ;
 
+	public UserInfoDTO fundUserInfoByPassword(String password);
+
 }

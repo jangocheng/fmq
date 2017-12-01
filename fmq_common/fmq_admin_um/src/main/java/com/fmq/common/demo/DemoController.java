@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UrlPathHelper;
 
 import com.fmq.common.base.BaseController;
-import com.fmq.common.base.CommonVO;
+import com.fmq.common.controller.vo.CommonVO;
 import com.fmq.common.controller.vo.TestDemoVO;
 
 

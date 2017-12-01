@@ -8,7 +8,6 @@ import com.fmq.common.dao.UserInfoMongoDAO;
 import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.UserInfoService;
 
-//@Component
 @Service
 public class UserInfoServiceImpl extends BaseService implements UserInfoService {
 	@Autowired
@@ -22,6 +21,11 @@ public class UserInfoServiceImpl extends BaseService implements UserInfoService 
 	@Override
 	public UserInfoDTO fundUserInfoByUserName(String userName) {
 		return dao.findUserByUserName(userName);
+	}
+
+	@Override
+	public UserInfoDTO fundUserInfoByPassword(String password) {
+		return dao.fundUserInfoByPassword(password);
 	}
 
 

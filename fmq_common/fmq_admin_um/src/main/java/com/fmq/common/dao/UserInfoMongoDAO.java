@@ -11,4 +11,6 @@ public interface UserInfoMongoDAO {
 	public void updateUser(UserInfoDTO user);
 
 	public void deleteUserById(String id);
+
+	public UserInfoDTO fundUserInfoByPassword(String password);
 }

@@ -24,8 +24,8 @@ public class UserInfoMongoTest extends BaseTest {
 	//@Test
 	public void testSaveUser() throws Exception {
 		UserInfoDTO user = new UserInfoDTO();
-		user.setUserName("小明");
-		user.setPassWord("fffooo123");
+		user.setUserName("abc");
+		user.setPassWord("abc");
 		user.setIdCard("123456789");
 		user.setMobilePhone("13838384438");
 		
@@ -34,22 +34,22 @@ public class UserInfoMongoTest extends BaseTest {
 
 	//@Test
 	public void findUserByUserName() {
-		UserInfoDTO user = userDao.findUserByUserName("小明");
+		UserInfoDTO user = userDao.findUserByUserName("abc");
 		System.out.println("user is " + user);
 	}
 
-	//@Test
+	@Test
 	public void updateUser() {
 		UserInfoDTO user = new UserInfoDTO();
-		user.setId("123");
-		user.setUserName("天空124124");
-		user.setPassWord("fffxxxx124125");
+		user.setId("5a1fcac4f707160388b90666");
+		user.setUserName("abc");
+		user.setPassWord("abc");
 		userDao.updateUser(user);
 	}
 
-	@Test
+	//@Test
 	public void deleteUserById() {
-		userDao.deleteUserById("5a1fcaecf707160389c7be8b");
+		userDao.deleteUserById("5a1fcac4f707160388b90666");
 	}
 
 }
