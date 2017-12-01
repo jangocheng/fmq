@@ -35,6 +35,9 @@ import com.fmq.common.controller.vo.TestDemoVO;
  * 
  * @author ljg
  *
+ *
+ * =@RestController等于@Controller+@ResponseBody组合，相当于在每个方法都加上@ResponseBody。  
+ *
  */
 
 // @Controller
@@ -143,7 +146,6 @@ public class DemoController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("/getDemo")
-	@ResponseBody
 	public CommonVO getDemo() {
 		logger.info("++++++++++++");
 		TestDemoVO vo = new TestDemoVO();
