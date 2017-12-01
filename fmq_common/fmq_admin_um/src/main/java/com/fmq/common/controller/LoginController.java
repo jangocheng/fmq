@@ -18,7 +18,7 @@ import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.LoginService;
 import com.fmq.common.service.UserInfoService;
 
-@RestController
+//@RestController
 public class LoginController extends BaseController {
 	@Autowired
 	LoginService loginService;
