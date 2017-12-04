@@ -8,7 +8,13 @@ import com.fmq.common.dto.UserDTO;
  */
 public interface UserService {
 
-    /**
-     */
-    UserDTO findUerByName(String userName);
+	/**
+	 */
+	UserDTO findUerByName(String userName);
+
+	void deleteUser(String id);
+
+	void saveUser(UserDTO userDto);
+
+	void updateUser(UserDTO userDto);
 }

@@ -17,39 +17,53 @@ import com.fmq.common.service.UserService;
  *
  */
 @Service
-public class UserServiceImpl extends BaseService  implements UserService {
+public class UserServiceImpl extends BaseService implements UserService {
 
-    @Autowired
-    private UserInfoDao dao;
-
-    @SuppressWarnings("rawtypes")
 	@Autowired
-    private RedisTemplate redisTemplate; 
-    
-    @SuppressWarnings("unchecked")
+	private UserInfoDao dao;
+
+	@SuppressWarnings("rawtypes")
+	@Autowired
+	private RedisTemplate redisTemplate;
+
+	@SuppressWarnings("unchecked")
 	public UserDTO findUerByName(String userName) {
-    	
-    	 // 从缓存中获取用户信息
-        String key = "User_" + userName;
-        ValueOperations<String, UserDTO> operations = redisTemplate.opsForValue();
 
-        // 缓存存在
-        boolean hasKey = redisTemplate.hasKey(key);
-        if (hasKey) {
-        	UserDTO dto = operations.get(key);
+		// 从缓存中获取用户信息
+		/*
+		 * 以下是使用redis 部分 String key = "User_" + userName; ValueOperations<String,
+		 * UserDTO> operations = redisTemplate.opsForValue();
+		 * 
+		 * // 缓存存在 boolean hasKey = redisTemplate.hasKey(key); if (hasKey) { UserDTO dto
+		 * = operations.get(key);
+		 * 
+		 * logger.info("UserServiceImpl.findUerByName() : 从缓存中获取了 >> " +
+		 * dto.toString()); return dto; }
+		 * 
+		 * // 从 DB 中获取用户信息 UserDTO dto=dao.findByName(userName);
+		 * 
+		 * // 插入缓存 operations.set(key, dto, 10, TimeUnit.SECONDS);
+		 * logger.info("UserServiceImpl.findUerByName() : 插入缓存 >> " + dto.toString());
+		 */
 
-        	logger.info("UserServiceImpl.findUerByName() : 从缓存中获取了 >> " + dto.toString());
-            return dto;
-        }
+		// 从 DB 中获取用户信息
+		UserDTO dto = dao.findByName(userName);
+		return dto;
+	}
 
-        // 从 DB 中获取用户信息
-        UserDTO dto=dao.findByName(userName);
+	@Override
+	public void deleteUser(String id) {
+		dao.deleteUser(id);
+	}
 
-        // 插入缓存
-        operations.set(key, dto, 10, TimeUnit.SECONDS);
-        logger.info("UserServiceImpl.findUerByName() : 插入缓存 >> " + dto.toString());
-    	
-        return dto;
-    }
+	@Override
+	public void saveUser(UserDTO userDto) {
+		dao.saveUser(userDto);
+	}
+
+	@Override
+	public void updateUser(UserDTO userDto) {
+		dao.updateUser(userDto);
+	}
 
 }

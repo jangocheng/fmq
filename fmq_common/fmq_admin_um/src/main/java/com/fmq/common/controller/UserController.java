@@ -1,6 +1,7 @@
 package com.fmq.common.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,9 +18,36 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/api/userInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/userInfo", method = RequestMethod.GET)
     public UserDTO findUserInfo(@RequestParam(value = "userName", required = true) String userName) {
         return userService.findUerByName(userName);
     }
+    
+    
+    @RequestMapping("/user/saveUser")
+    public void saveUser(@RequestParam(value = "userName", required = true) String userName,
+            @RequestParam(value = "passWord", required = true) String passWord) {
+    	
+    		UserDTO userDto =new UserDTO();
+    		userDto.setUserName(userName);
+        	userDto.setPassWord(passWord);
+       	userService.saveUser(userDto);
+    	
+    }
+    @RequestMapping("/user/updateUser")
+    public void updateUser(@RequestParam(value = "userName", required = true) String userName,
+    		                  @RequestParam(value = "passWord", required = true) String passWord) {
+    	UserDTO userDto =new UserDTO();
+    	userDto.setUserName(userName);
+    	userDto.setPassWord(passWord);
+    	userService.updateUser(userDto);
+    	
+    }
+    @RequestMapping("/user/deleteUser")
+    public void deleteUser(@RequestParam(value = "id", required = true) String id) {
+    	userService.deleteUser(id);
+    	
+    }
+    
 
 }

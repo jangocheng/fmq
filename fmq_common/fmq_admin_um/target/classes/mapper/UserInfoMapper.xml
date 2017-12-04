@@ -8,7 +8,7 @@
 		<result column="create_date" property="createDate" />
 	</resultMap>
 
-	<parameterMap id="UserInfo" type="com.fmq.common.dto.UserDTO"/>
+	<parameterMap id="UserInfo" type="com.fmq.common.dto.UserDTO" />
 
 	<sql id="Base_Column_List">
 		id, userName, passWord,create_date
@@ -20,5 +20,33 @@
 		from UserInfo
 		where userName = #{userName}
 	</select>
+
+	<insert id="saveUser" parameterType="com.fmq.common.dto.UserDTO">
+		insert into UserInfo (userName, userName,create_date)
+		values (userName=#{userName,jdbcType=VARCHAR},
+		passWord=#{passWord,jdbcType=VARCHAR},create_date=#{createDate,jdbcType=DATE})
+	</insert>
+
+	<update id="updateUser" parameterType="com.fmq.common.dto.UserDTO">
+		update UserInfo
+		<set>
+			<if test="userName != null">
+				userName = #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="passWord != null">
+				passWord = #{passWord,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				create_date = #{createDate,jdbcType=DATE},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
+	<delete id="deleteUser" parameterType="java.lang.String">
+		delete from UserInfo
+		where id = #{id}
+	</delete>
+
 
 </mapper>

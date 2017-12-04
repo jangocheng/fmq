@@ -1,19 +1,14 @@
-package com.fmq.common.dto;
+package com.fmq.common.controller.form;
 
 import java.util.Date;
 
-import com.fmq.common.base.BaseDTO;
 
 /**
- * 实体类
+ * 入参类
  *
  */
-public class UserDTO extends BaseDTO {
+public class UserForm {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	public int id;
 	public String userName;
