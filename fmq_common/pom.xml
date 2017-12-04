@@ -101,6 +101,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<mainClass>com.fmq.common.StartApplication</mainClass>
+					<!--<fork>true</fork>--><!-- 热部署生效必须加 -->
 				</configuration>
 				<executions>
 					<execution>

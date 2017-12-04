@@ -13,35 +13,33 @@
 	<sql id="Base_Column_List">
 		id, userName, passWord,create_date
 	</sql>
+	<select id="findAll" resultType="com.fmq.common.dto.UserDTO">
+	  select
+		<include refid="Base_Column_List" />
+		from UserInfo
+	</select>
 
-	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from UserInfo
-		where userName = #{userName}
+		where id = #{id}
 	</select>
 
 	<insert id="saveUser" parameterType="com.fmq.common.dto.UserDTO">
-		insert into UserInfo (userName, userName,create_date)
-		values (userName=#{userName,jdbcType=VARCHAR},
-		passWord=#{passWord,jdbcType=VARCHAR},create_date=#{createDate,jdbcType=DATE})
+		insert into UserInfo (id,userName, passWord)
+		values (#{id,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{passWord,jdbcType=VARCHAR})
 	</insert>
 
-	<update id="updateUser" parameterType="com.fmq.common.dto.UserDTO">
-		update UserInfo
+	<update id="updateUser" parameterType="com.fmq.common.dto.UserDTO" flushCache="true">
+		update UserInfo 
 		<set>
-			<if test="userName != null">
-				userName = #{userName,jdbcType=VARCHAR},
-			</if>
-			<if test="passWord != null">
-				passWord = #{passWord,jdbcType=VARCHAR},
-			</if>
-			<if test="createDate != null">
-				create_date = #{createDate,jdbcType=DATE},
-			</if>
+			userName = #{userName,jdbcType=VARCHAR},
+			passWord = #{passWord,jdbcType=VARCHAR}
 		</set>
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
+
 
 	<delete id="deleteUser" parameterType="java.lang.String">
 		delete from UserInfo

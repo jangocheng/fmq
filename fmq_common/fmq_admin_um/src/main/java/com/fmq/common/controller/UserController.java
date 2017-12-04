@@ -1,5 +1,7 @@
 package com.fmq.common.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +21,13 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/user/userInfo", method = RequestMethod.GET)
-    public UserDTO findUserInfo(@RequestParam(value = "userName", required = true) String userName) {
-        return userService.findUerByName(userName);
+    public UserDTO findByid(@RequestParam(value = "id", required = true) String id) {
+        return userService.findUerById(id);
+    }
+    
+    @RequestMapping(value = "/user/findAll", method = RequestMethod.GET)
+    public List<UserDTO> findAll() {
+    	return userService.findAll();
     }
     
     

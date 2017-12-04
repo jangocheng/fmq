@@ -1,5 +1,7 @@
 package com.fmq.common.service;
 
+import java.util.List;
+
 import com.fmq.common.dto.UserDTO;
 
 /**
@@ -10,7 +12,8 @@ public interface UserService {
 
 	/**
 	 */
-	UserDTO findUerByName(String userName);
+	public List<UserDTO>  findAll();
+	UserDTO findUerById(String userName);
 
 	void deleteUser(String id);
 

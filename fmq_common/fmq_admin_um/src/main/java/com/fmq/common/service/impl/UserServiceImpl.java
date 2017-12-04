@@ -1,5 +1,6 @@
 package com.fmq.common.service.impl;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 	private RedisTemplate redisTemplate;
 
 	@SuppressWarnings("unchecked")
-	public UserDTO findUerByName(String userName) {
+	public UserDTO findUerById(String id) {
 
 		// 从缓存中获取用户信息
 		/*
@@ -47,7 +48,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 		 */
 
 		// 从 DB 中获取用户信息
-		UserDTO dto = dao.findByName(userName);
+		UserDTO dto = dao.findById(id);
 		return dto;
 	}
 
@@ -56,6 +57,10 @@ public class UserServiceImpl extends BaseService implements UserService {
 		dao.deleteUser(id);
 	}
 
+	@Override
+	public List<UserDTO> findAll() {
+		return dao.findAll();
+	}
 	@Override
 	public void saveUser(UserDTO userDto) {
 		dao.saveUser(userDto);

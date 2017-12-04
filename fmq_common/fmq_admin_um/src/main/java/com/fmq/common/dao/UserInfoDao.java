@@ -1,9 +1,12 @@
 package com.fmq.common.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.fmq.common.dto.UserDTO;
+
 
 /**
  * DAO 接口类
@@ -12,11 +15,9 @@ import com.fmq.common.dto.UserDTO;
 @Mapper
 public interface UserInfoDao {
 
-	/**
-	 *
-	 * @param userName
-	 */
-	UserDTO findByName(@Param("userName") String userName);
+	List<UserDTO>  findAll();
+	
+	UserDTO findById(@Param("id") String id);
 
 	int deleteUser(@Param("id") String id);
 
