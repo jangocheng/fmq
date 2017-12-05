@@ -40,11 +40,9 @@
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
 
-
 	<delete id="deleteUser" parameterType="java.lang.String">
 		delete from UserInfo
 		where id = #{id}
 	</delete>
-
 
 </mapper>
