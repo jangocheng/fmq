@@ -140,19 +140,5 @@ public class DemoController extends BaseController {
 		return "home";
 	}
 
-	/**
-	 * 返回demo数据: 请求地址：http://127.0.0.1:8089/demo/getDemo
-	 * 
-	 * @return
-	 */
-	@RequestMapping("/getDemo")
-	public CommonVO getDemo() {
-		logger.info("++++++++++++");
-		TestDemoVO vo = new TestDemoVO();
-		vo.setId(1);
-		vo.setName("Angel");
-		logger.info("++++++++++++" + vo.toString());
-		return vo;
-	}
 
 }

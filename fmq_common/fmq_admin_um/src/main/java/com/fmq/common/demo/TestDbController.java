@@ -30,7 +30,7 @@ public class TestDbController extends BaseController{
     //http://localhost:8089/mydb/getUsers
     @RequestMapping("/getUsers")
     public List<Map<String, Object>> getDbType(){
-        String sql = "select * from test_tbl";
+        String sql = "select * from UserInfo";
         List<Map<String, Object>> list =  jdbcTemplate.queryForList(sql);
         for (Map<String, Object> map : list) {
             Set<Entry<String, Object>> entries = map.entrySet( );
