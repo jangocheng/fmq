@@ -27,3 +27,17 @@ logging:
     com:
       fmq:
         common: INFO
+        
+mongodb:
+  host: 192.168.1.108
+  port: 28017
+  name: test
+  user: 
+  password: 
+  authentification: false
+
+
+mybatis: 
+  typeAliasesPackage: com.fmq.common.dto
+  mapperLocations: classpath:mapper/*.xml
+
