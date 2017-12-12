@@ -8,10 +8,10 @@ server:
     
 spring:
   datasource: 
-     url: jdbc:mysql://127.0.0.1:3306/test
+     url: jdbc:mysql://192.168.1.108/test
      driver-class-name: com.mysql.jdbc.Driver
      username: root
-     password: root
+     password: 
      max-idle: 10
      max-wait: 10000
      min-idle: 5
@@ -27,3 +27,17 @@ logging:
     com:
       fmq:
         common: INFO
+        
+mongodb:
+  host: 192.168.1.108
+  port: 28017
+  name: test
+  user: 
+  password: 
+  authentification: false
+
+
+mybatis: 
+  typeAliasesPackage: com.fmq.common.dto
+  mapperLocations: classpath:mapper/*.xml
+
