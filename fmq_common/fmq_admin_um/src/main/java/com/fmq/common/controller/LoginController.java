@@ -4,7 +4,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -18,7 +20,8 @@ import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.LoginService;
 import com.fmq.common.service.UserInfoService;
 
-//@RestController
+
+@RestController
 public class LoginController extends BaseController {
 	@Autowired
 	LoginService loginService;
@@ -36,9 +39,9 @@ public class LoginController extends BaseController {
 		return "login";
 	}
 
-	// @PostMapping("/loginPost")
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/loginPost")
-	public @ResponseBody CommonVO loginPost(String account, String password, HttpSession session) {
+	public @ResponseBody CommonVO loginPost( String account, String password, HttpSession session) {
 		LoginVO vo = new LoginVO();
 		if ("".equals(account) || account == null) {
 			vo.setResponseCode(RspCodeConstants.RSP_CODE_FAI);

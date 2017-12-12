@@ -8,12 +8,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-//@Configuration
+@Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 
 	/**
@@ -38,6 +39,19 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 		addInterceptor.addPathPatterns("/**");
 	}
 
+	/**
+	 * 跨域
+	 */
+	 @Override
+	    public void addCorsMappings(CorsRegistry registry) {
+	           registry.addMapping("/com/fmq/common/controller/**")
+	           .allowedOrigins("http://localhost")
+	           .allowedMethods("GET", "POST")
+	           .allowCredentials(false).maxAge(3600);
+	    }
+	
+	
+	
 	private class SecurityInterceptor extends HandlerInterceptorAdapter {
 
 		@Override
