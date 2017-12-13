@@ -24,44 +24,15 @@
   </div>
 </template>
 
-
-
 <script>
-
-
-
-export default {
-  name: 'Login',
-  data () {
-    return {
-      msg: '欢迎使用后台管理系统',
-      loginName:'',
-      loginPwd:''
-
-    }
-
-
-  },
-    methods: {
-       login () {
-        var  self= this;
-         var pams={
-            account:self.loginName || 'abc',
-            password:self.loginPwd || 123
+      export default {
+        name: 'Login',
+        data () {
+          return {
+            msg: '欢迎使用后台系统'
+          }
         }
-         
-         this.$ajax({
-          method: 'get',
-          url: 'http://localhost:8081/loginPost',
-          data: JSON.stringify(pams)
-         }).then(function(e){
-            console.info(e);
-         })
-        
-
       }
-}
-}
 </script>
 
 
@@ -82,3 +53,8 @@ a {
   color: #42b983;
 }
 </style>
+
+
+
+
+
