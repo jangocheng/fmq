@@ -1,5 +1,5 @@
 <template>
-  <div> 
+  <div class="error"> 
     <h1>{{ msg }}</h1>
   </div>
 </template>
@@ -7,10 +7,10 @@
 
 <script>
       export default {
-        name: 'Home',
+        name: 'Error',
         data () {
           return {
-            msg: '首页'
+            msg: '访问失败，重新访问'
           }
         }
       }
