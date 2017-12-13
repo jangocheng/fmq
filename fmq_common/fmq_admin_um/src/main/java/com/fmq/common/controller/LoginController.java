@@ -24,8 +24,7 @@ import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.LoginService;
 import com.fmq.common.service.UserInfoService;
 
-
-@RestController
+//@RestController
 public class LoginController extends BaseController {
 	@Autowired
 	LoginService loginService;
@@ -42,17 +41,14 @@ public class LoginController extends BaseController {
 	public String login() {
 		return "login";
 	}
-	
-
 
 	@RequestMapping("/loginPost")
 	@ResponseBody
-	public  CommonVO loginPost(@RequestBody Map<String,Object> params, HttpSession session) {
+	public CommonVO loginPost(@RequestBody Map<String, Object> params, HttpSession session) {
 		LoginVO vo = new LoginVO();
-
 		String account = params.get("account").toString();
 		String password = params.get("password").toString();
-		
+
 		if ("".equals(account) || account == null) {
 			vo.setResponseCode(RspCodeConstants.RSP_CODE_FAI);
 			vo.setResponseMsg("账户不能空");

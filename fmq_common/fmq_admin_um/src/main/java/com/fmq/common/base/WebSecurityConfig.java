@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-@Configuration
+//@Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 
 	/**
