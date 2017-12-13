@@ -6,8 +6,9 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 Vue.config.productionTip = false
-Vue.prototype.$ajax = axios
+Vue.prototype.$http = axios
 Vue.use(Vuex)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
