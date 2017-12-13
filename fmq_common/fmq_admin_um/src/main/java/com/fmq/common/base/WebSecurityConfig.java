@@ -39,24 +39,14 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 		addInterceptor.addPathPatterns("/**");
 	}
 
-	/**
-	 * 跨域
-	 */
-	 @Override
-	    public void addCorsMappings(CorsRegistry registry) {
-	           registry.addMapping("/com/fmq/common/controller/**")
-	           .allowedOrigins("http://localhost")
-	           .allowedMethods("GET", "POST")
-	           .allowCredentials(false).maxAge(3600);
-	    }
-	
-	
-	
 	private class SecurityInterceptor extends HandlerInterceptorAdapter {
 
 		@Override
 		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 				throws Exception {
+			
+			response.setHeader("Access-Control-Allow-Origin", "*");
+			
 			HttpSession session = request.getSession();
 			if (session.getAttribute(SESSION_KEY) != null) {
 				logger.info("登陆的账户  " + session.getAttribute(SESSION_KEY));

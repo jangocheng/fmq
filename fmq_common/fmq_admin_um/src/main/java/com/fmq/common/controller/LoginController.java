@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -39,8 +41,9 @@ public class LoginController extends BaseController {
 		return "login";
 	}
 
-	@CrossOrigin(origins = "http://localhost:8080")
-	@GetMapping("/loginPost")
+	//@GetMapping("/loginPost")
+	//@PostMapping("/loginPost")
+	@RequestMapping(value="/loginPost", method = RequestMethod.GET)
 	public @ResponseBody CommonVO loginPost( String account, String password, HttpSession session) {
 		LoginVO vo = new LoginVO();
 		if ("".equals(account) || account == null) {
