@@ -5,7 +5,8 @@
        <div class="footer">
         <div class="input_text">
           <table align="center">
-            <tr>
+            <li></li>
+            <tr> 
                <td class="fr"><label>用户名：</label></td>
                <td><input type="text" placeholder="用户名" maxlength="40" v-model="loginName" class="loginName"/></td>
             </tr>
@@ -29,14 +30,35 @@
         name: 'Login',
         data () {
           return {
-            msg: '欢迎使用后台系统'
+            msg: '欢迎使用后台系统',
+            loginName:'',
+            loginPwd:''
           }
+        },
+        methods:{
+              login:function (){
+                  var self = this;
+                  var url='http://localhost:8081/loginPost'
+                  this.$http.get(url,{
+                    params:{
+                      account:self.loginName,
+                      password:self.loginPwd
+                    }, 
+                  }).then(function (response) {
+                    var errorcode=response.data.errorcode;
+                      if(errorcode=="200"){
+                           self.$router.push({ path: '/Home' });
+                      }else{
+                          // self.$router.push({ path: '/Error' });
+                      }
+                    }).catch(function (error) {
+                      console.log(error);
+                  });
+              }
         }
       }
 </script>
 
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
   font-weight: normal;
