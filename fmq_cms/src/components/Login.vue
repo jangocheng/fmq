@@ -37,7 +37,7 @@
         },
         methods:{
               login:function (){
-                  var self = this;
+                  /*var self = this;
                   var url='http://localhost:8081/loginPost'
                   this.$http.get(url,{
                     params:{
@@ -45,6 +45,23 @@
                       password:self.loginPwd
                     }, 
                   }).then(function (response) {
+                    var errorcode=response.data.errorcode;
+                      if(errorcode=="200"){
+                           self.$router.push({ path: '/Home' });
+                      }else{
+                          // self.$router.push({ path: '/Error' });
+                      }
+                    }).catch(function (error) {
+                      console.log(error);
+                  });*/
+
+                   var self = this;
+                  var url='http://localhost:8081/loginPost'
+                  var params={
+                      account:self.loginName,
+                      password:self.loginPwd
+                    }
+                  this.$http.post(url,params).then(function (response) {
                     var errorcode=response.data.errorcode;
                       if(errorcode=="200"){
                            self.$router.push({ path: '/Home' });
