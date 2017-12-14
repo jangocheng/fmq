@@ -12,7 +12,6 @@ import com.fmq.common.controller.form.UserInfoForm;
 import com.fmq.common.controller.vo.CommonVO;
 import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.UserInfoService;
-import com.fmq.common.util.BeanHelper;
 
 @RestController
 public class UserInfoController extends  BaseController{
@@ -24,7 +23,7 @@ public class UserInfoController extends  BaseController{
 	public CommonVO saveUserInfo(@Valid @ModelAttribute  UserInfoForm form ) {
 		CommonVO vo =new CommonVO();
 		UserInfoDTO dto=new UserInfoDTO();
-		BeanHelper.copyProperties(dto, form);
+		//BeanHelper.copyProperties(dto, form);
 		sevice.saveUserInfo(dto);
 		
 		return vo;
