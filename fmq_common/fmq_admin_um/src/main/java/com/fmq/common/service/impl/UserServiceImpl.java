@@ -31,24 +31,22 @@ public class UserServiceImpl extends BaseService implements UserService {
 	public UserDTO findUerById(String id) {
 
 		// 从缓存中获取用户信息
-		/*
-		 * 以下是使用redis 部分 String key = "User_" + userName; ValueOperations<String,
-		 * UserDTO> operations = redisTemplate.opsForValue();
-		 * 
-		 * // 缓存存在 boolean hasKey = redisTemplate.hasKey(key); if (hasKey) { UserDTO dto
-		 * = operations.get(key);
-		 * 
-		 * logger.info("UserServiceImpl.findUerByName() : 从缓存中获取了 >> " +
-		 * dto.toString()); return dto; }
-		 * 
-		 * // 从 DB 中获取用户信息 UserDTO dto=dao.findByName(userName);
-		 * 
-		 * // 插入缓存 operations.set(key, dto, 10, TimeUnit.SECONDS);
-		 * logger.info("UserServiceImpl.findUerByName() : 插入缓存 >> " + dto.toString());
-		 */
+		String key = "User_" + id;
+		ValueOperations<String, UserDTO> operations = redisTemplate.opsForValue();
 
+		boolean hasKey = redisTemplate.hasKey(key);
+		if (hasKey) {
+			UserDTO dto = operations.get(key);
+			logger.info("UserServiceImpl.findUerByid() : 从缓存中获取了 >> " + dto.toString());
+			return dto;
+		}
 		// 从 DB 中获取用户信息
 		UserDTO dto = dao.findById(id);
+		if(dto!=null) {
+			// 插入缓存 100为秒
+			operations.set(key, dto, 100, TimeUnit.SECONDS);
+			logger.info("UserServiceImpl.findUerByid() : 插入缓存 >> " + dto.toString());
+		}
 		return dto;
 	}
 
@@ -61,6 +59,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 	public List<UserDTO> findAll() {
 		return dao.findAll();
 	}
+
 	@Override
 	public void saveUser(UserDTO userDto) {
 		dao.saveUser(userDto);

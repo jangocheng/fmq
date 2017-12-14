@@ -32,13 +32,13 @@ public class UserInfoMongoTest extends BaseTest {
 		userDao.saveUser(user);
 	}
 
-	//@Test
+	@Test
 	public void findUserByUserName() {
 		UserInfoDTO user = userDao.findUserByUserName("abc");
 		System.out.println("user is " + user);
 	}
 
-	@Test
+	//@Test
 	public void updateUser() {
 		UserInfoDTO user = new UserInfoDTO();
 		user.setId("5a1fcac4f707160388b90666");
