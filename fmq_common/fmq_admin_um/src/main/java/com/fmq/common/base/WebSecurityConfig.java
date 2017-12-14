@@ -1,4 +1,4 @@
-package com.fmq.common.config;
+package com.fmq.common.base;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-//@Configuration
+@Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 
 	/**
@@ -43,6 +43,9 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 		@Override
 		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 				throws Exception {
+			
+			response.setHeader("Access-Control-Allow-Origin", "*");
+			
 			HttpSession session = request.getSession();
 			if (session.getAttribute(SESSION_KEY) != null) {
 				logger.info("登陆的账户  " + session.getAttribute(SESSION_KEY));

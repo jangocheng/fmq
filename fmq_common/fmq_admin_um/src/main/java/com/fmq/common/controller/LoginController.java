@@ -2,8 +2,6 @@ package com.fmq.common.controller;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +17,14 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.fmq.common.base.BaseController;
 import com.fmq.common.base.RspCodeConstants;
-import com.fmq.common.config.WebSecurityConfig;
+import com.fmq.common.base.WebSecurityConfig;
 import com.fmq.common.controller.vo.CommonVO;
 import com.fmq.common.controller.vo.LoginVO;
 import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.LoginService;
 import com.fmq.common.service.UserInfoService;
 
-//@RestController
+@RestController
 public class LoginController extends BaseController {
 	@Autowired
 	LoginService loginService;
@@ -39,15 +37,18 @@ public class LoginController extends BaseController {
 		return "index";
 	}
 
-	@RequestMapping("/login")
-	@ResponseBody
-	public CommonVO loginPost(@RequestParam(value = "account", required = false) String account,
-			@RequestParam(value = "password", required = false) String password, HttpServletResponse response,
-			HttpServletRequest request, HttpSession session) {
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		
+	@RequestMapping("/loginPost")
+	@ResponseBody
+	public CommonVO loginPost(@RequestBody Map<String, Object> params, HttpSession session) {
 		LoginVO vo = new LoginVO();
+		String account = params.get("account").toString();
+		String password = params.get("password").toString();
+
 		if ("".equals(account) || account == null) {
 			vo.setResponseCode(RspCodeConstants.RSP_CODE_FAI);
 			vo.setResponseMsg("账户不能空");
