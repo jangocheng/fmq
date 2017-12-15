@@ -144,6 +144,11 @@
 			<artifactId>zookeeper</artifactId>
 			<type>pom</type>
 		</dependency>
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.10</version>
+		</dependency>
 		<!-- druid 数据源 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>

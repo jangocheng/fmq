@@ -29,14 +29,13 @@ import com.fmq.common.base.BaseController;
 import com.fmq.common.controller.vo.CommonVO;
 import com.fmq.common.controller.vo.TestDemoVO;
 
-
 /**
  * 测试Controller 和Controller 类注解的使用
  * 
  * @author ljg
  *
  *
- * =@RestController等于@Controller+@ResponseBody组合，相当于在每个方法都加上@ResponseBody。  
+ * @RestController等于@Controller+@ResponseBody组合，相当于在每个方法都加上@ResponseBody。
  *
  */
 
@@ -44,8 +43,7 @@ import com.fmq.common.controller.vo.TestDemoVO;
 @RestController
 @SpringBootApplication
 public class DemoController extends BaseController {
-	
-	
+
 	// http://localhost:8080/echo/message
 	@RequestMapping(value = "/echo/{message}", method = RequestMethod.GET)
 	public String echo1(@PathVariable("message") String msg) {
@@ -98,14 +96,14 @@ public class DemoController extends BaseController {
 			e.printStackTrace();
 		}
 
-		//获取本机IP
+		// 获取本机IP
 		Enumeration allNetInterfaces;
 		try {
 			allNetInterfaces = NetworkInterface.getNetworkInterfaces();
 			InetAddress ip = null;
 			while (allNetInterfaces.hasMoreElements()) {
 				NetworkInterface netInterface = (NetworkInterface) allNetInterfaces.nextElement();
-				System.out.println("netInterface.getName:"+netInterface.getName());
+				System.out.println("netInterface.getName:" + netInterface.getName());
 				Enumeration addresses = netInterface.getInetAddresses();
 				while (addresses.hasMoreElements()) {
 					ip = (InetAddress) addresses.nextElement();
@@ -118,12 +116,11 @@ public class DemoController extends BaseController {
 			e.printStackTrace();
 		}
 
-		UrlPathHelper urlPathHelper=new UrlPathHelper();
-		System.out.println("ContextPath "+urlPathHelper.getContextPath(req));
-		System.out.println("RequestUri "+urlPathHelper.getRequestUri(req));
-		System.out.println("LookupPathForRequest "+urlPathHelper.getLookupPathForRequest(req));
-		
-		
+		UrlPathHelper urlPathHelper = new UrlPathHelper();
+		System.out.println("ContextPath " + urlPathHelper.getContextPath(req));
+		System.out.println("RequestUri " + urlPathHelper.getRequestUri(req));
+		System.out.println("LookupPathForRequest " + urlPathHelper.getLookupPathForRequest(req));
+
 		return "objet";
 	}
 
@@ -139,6 +136,5 @@ public class DemoController extends BaseController {
 	public String home() {
 		return "home";
 	}
-
 
 }
