@@ -1,4 +1,4 @@
-package com.fmq.common.base;
+package com.fmq.common.config;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

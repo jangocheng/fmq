@@ -1,4 +1,4 @@
-package com.fmq.common.base;
+package com.fmq.common.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
