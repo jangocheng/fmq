@@ -44,7 +44,6 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 				throws Exception {
 			
-			response.setHeader("Access-Control-Allow-Origin", "*");
 			
 			HttpSession session = request.getSession();
 			if (session.getAttribute(SESSION_KEY) != null) {
