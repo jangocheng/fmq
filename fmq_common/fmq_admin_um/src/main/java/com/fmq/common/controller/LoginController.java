@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.fmq.common.base.BaseController;
 import com.fmq.common.base.RspCodeConstants;
-import com.fmq.common.base.WebSecurityConfig;
+import com.fmq.common.config.WebSecurityConfig;
 import com.fmq.common.controller.vo.CommonVO;
 import com.fmq.common.controller.vo.LoginVO;
 import com.fmq.common.dto.UserInfoDTO;
