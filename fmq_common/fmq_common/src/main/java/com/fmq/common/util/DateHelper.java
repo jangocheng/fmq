@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * 时间格式转换
+ * 
  * @author ljg
  *
  */
@@ -47,7 +48,7 @@ public class DateHelper {
 	 *            , 默认今天
 	 * @param format
 	 * @return String
-	 * */
+	 */
 	public static String date2Str(Date date, String format) {
 		if (date == null) {
 			date = new Date();
@@ -66,7 +67,7 @@ public class DateHelper {
 	 * @param strDate
 	 * @param format
 	 * @return Date
-	 * */
+	 */
 	public static Date str2Date(String strDate, String format) {
 		if (strDate == null) {
 			return null;
@@ -83,9 +84,9 @@ public class DateHelper {
 	}
 
 	public static Date getLastDate(Date date, long day) {
-		long date_3_hm = date.getTime() - 3600000 * 24 * day;
-		Date date_3_hm_date = new Date(date_3_hm);
-		return date_3_hm_date;
+		long dateHm = date.getTime() - 3600000 * 24 * day;
+		Date dateHmDate = new Date(dateHm);
+		return dateHmDate;
 	}
 
 	public static Date getDelayTime(Date lastTime, String delaySencod) {
@@ -93,14 +94,12 @@ public class DateHelper {
 		if (lastTime == null) {
 			lastTime = new Date();
 		}
-		if (delaySencod == null || "".equals(delaySencod)
-				|| delaySencod.startsWith("0")) {
+		if (delaySencod == null || "".equals(delaySencod) || delaySencod.startsWith("0")) {
 			delaySencod = "60";
 		}
 		try {
-			long Time = (lastTime.getTime() / 1000)
-					+ Integer.parseInt(delaySencod);
-			lastTime.setTime(Time * 1000);
+			long time = (lastTime.getTime() / 1000) + Integer.parseInt(delaySencod);
+			lastTime.setTime(time * 1000);
 			date = lastTime;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,9 +120,8 @@ public class DateHelper {
 			delay = "1";
 		}
 		try {
-			long Time = (lastTime.getTime() / 1000) + Integer.parseInt(delay)
-					* 24 * 60 * 60;
-			lastTime.setTime(Time * 1000);
+			long time = (lastTime.getTime() / 1000) + Integer.parseInt(delay) * 24 * 60 * 60;
+			lastTime.setTime(time * 1000);
 			date = lastTime;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,8 +134,7 @@ public class DateHelper {
 			SimpleDateFormat format = new SimpleDateFormat(DATE_FMT_SHORT);
 			String mdate = "";
 			Date d = str2Date(nowdate, DATE_FMT_SHORT);
-			long myTime = (d.getTime() / 1000) + Integer.parseInt(delay) * 24
-					* 60 * 60;
+			long myTime = (d.getTime() / 1000) + Integer.parseInt(delay) * 24 * 60 * 60;
 			d.setTime(myTime * 1000);
 			mdate = format.format(d);
 			return mdate;
@@ -159,8 +156,7 @@ public class DateHelper {
 			} else {
 				d = str2Date(nowdate, formatStr);
 			}
-			long myTime = (d.getTime() / 1000) + Integer.parseInt(delay) * 24
-					* 60 * 60;
+			long myTime = (d.getTime() / 1000) + Integer.parseInt(delay) * 24 * 60 * 60;
 			d.setTime(myTime * 1000);
 			mdate = format.format(d);
 			return mdate;
@@ -171,11 +167,14 @@ public class DateHelper {
 
 	public static Date getDate(String date, String format, int days) {
 
-		Date _date = str2Date(date, format);
+		Date strDate = str2Date(date, format);
 		Calendar c = Calendar.getInstance();
-		c.setTime(_date); // 设置日期
-		c.add(Calendar.DATE, days); // 日期分钟加1,Calendar.DATE(天),Calendar.HOUR(小时)
-		return c.getTime(); // 结果
+		// 设置日期
+		c.setTime(strDate);
+		// 日期分钟加1,Calendar.DATE(天),Calendar.HOUR(小时)
+		c.add(Calendar.DATE, days);
+		// 结果
+		return c.getTime();
 	}
 
 	public static String getWeek(String strDate, String num) {
@@ -183,20 +182,21 @@ public class DateHelper {
 		Date dd = str2Date(strDate, DATE_FMT_SHORT);
 		Calendar c = Calendar.getInstance();
 		c.setTime(dd);
-		if (num.equals("1"))
+		if ("1".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-		else if (num.equals("2"))
+		} else if ("2".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
-		else if (num.equals("3"))
+		} else if ("3".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
-		else if (num.equals("4"))
+		} else if ("4".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
-		else if (num.equals("5"))
+		} else if ("5".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
-		else if (num.equals("6"))
+		} else if ("6".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
-		else if (num.equals("0"))
+		} else if ("0".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+		}
 		return new SimpleDateFormat(DATE_FMT_SHORT).format(c.getTime());
 	}
 
@@ -225,6 +225,7 @@ public class DateHelper {
 		case Calendar.SATURDAY:
 			weekDay = "星期六";
 			break;
+		  default:
 		}
 		return weekDay;
 	}
@@ -266,8 +267,7 @@ public class DateHelper {
 	public static Date parseDate(String date) {
 		SimpleDateFormat df = new SimpleDateFormat();
 		Date rtnDate = null;
-		if (date == null || date.trim().equals("")
-				|| date.trim().equals("null")) {
+		if (date == null || date.trim().equals("") || date.trim().equals("null")) {
 			return rtnDate;
 		}
 		try {
@@ -275,97 +275,107 @@ public class DateHelper {
 			int length = date.length();
 			if (date.indexOf("-") != -1) {
 				if (length == 5) {
-					if (date.indexOf("-") == length - 1) {// 2015-
+					if (date.indexOf("-") == length - 1) {
+						// 2015-
 						df.applyPattern("yyyy");
 						date = date.substring(0, 4);
 						rtnDate = df.parse(date);
 					} else {
-						df.applyPattern("yyyy-MM");// 2015-01
+						df.applyPattern("yyyy-MM");
+						// 2015-01
 						rtnDate = df.parse(date);
 					}
-				} else if (length >= 6 && length <= 7) {// 2015-1 -- 2015-01
+				} else if (length >= 6 && length <= 7) {
+					// 2015-1 -- 2015-01
 					df.applyPattern("yyyy-MM");
 					rtnDate = df.parse(date);
 				} else if (length >= 8 && length <= 9) {
-					if (date.lastIndexOf("-") == length - 1) { // 2015-12-
+					if (date.lastIndexOf("-") == length - 1) {
+						// 2015-12-
 						df.applyPattern("yyyy-MM");
 						date = date.substring(0, length - 1);
 						rtnDate = df.parse(date);
 					} else {
-						df.applyPattern("yyyy-MM-dd");// 2015-1-1 --
-														// 2015-01-01
+						df.applyPattern("yyyy-MM-dd");
+						// 2015-1-1 --
+						// 2015-01-01
 						rtnDate = df.parse(date);
 					}
 				} else if (length >= 10 && length <= 11) {
-					if (date.indexOf(" ") > -1
-							&& date.indexOf(" ") < length - 1) {
-						df.applyPattern("yyyy-MM-dd HH");// 2015-1-1 1 --
-															// 2015-1-1 11 中间有空格
+					if (date.indexOf(" ") > -1 && date.indexOf(" ") < length - 1) {
+						// 2015-1-1 1 --
+						df.applyPattern("yyyy-MM-dd HH");
+						// 2015-1-1 11 中间有空格
 						rtnDate = df.parse(date);
 					} else {
-						df.applyPattern("yyyy-MM-dd");// "2015-01-01"中间无空格
+						df.applyPattern("yyyy-MM-dd");
+						// "2015-01-01"中间无空格
 						rtnDate = df.parse(date);
 					}
 				} else if (length >= 12 && length <= 13) {
-					if (date.indexOf(":") > -1
-							&& date.indexOf(":") < length - 1) {
-						df.applyPattern("yyyy-MM-dd HH:mm");// 2015-1-1 1:1 --
-															// 2015-1-1 1:01
-															// 中间有冒号
+					if (date.indexOf(":") > -1 && date.indexOf(":") < length - 1) {
+						df.applyPattern("yyyy-MM-dd HH:mm");
+						// 2015-1-1 1:1 --
+						// 2015-1-1 1:01
+						// 中间有冒号
 						rtnDate = df.parse(date);
 					} else {
-						df.applyPattern("yyyy-MM-dd HH");// 2015-01-01 01
-															// 中间有空格
+						df.applyPattern("yyyy-MM-dd HH");
+						// 2015-01-01 01
+
+						// 中间有空格
 						rtnDate = df.parse(date);
 					}
 				} else if (length >= 14 && length <= 16) {
 					int lastIndex = date.lastIndexOf(":");
-					if (date.indexOf(":") > -1 && lastIndex < length - 1
-							&& date.indexOf(":") != lastIndex) {
-						df.applyPattern("yyyy-MM-dd HH:mm:ss");// 2015-1-1
-																// 1:1:1 --
-																// 2015-01-01
-																// 1:1:1 中间有两个冒号
+					if (date.indexOf(":") > -1 && lastIndex < length - 1 && date.indexOf(":") != lastIndex) {
+						df.applyPattern("yyyy-MM-dd HH:mm:ss");
+						// 2015-1-1
+						// 1:1:1 --
+						// 2015-01-01
+						// 1:1:1 中间有两个冒号
 						if (lastIndex < length - 1 - 2) {
 							date = date.substring(0, lastIndex + 3);
 						}
 						rtnDate = df.parse(date);
-					} else if (date.indexOf(":") > -1 && lastIndex < length - 1
-							&& date.indexOf(":") == lastIndex) {
-						df.applyPattern("yyyy-MM-dd HH:mm");// 2015-01-01 1:1 --
-															// 2015-01-01
-															// 01:01中间只有一个冒号
+					} else if (date.indexOf(":") > -1 && lastIndex < length - 1 && date.indexOf(":") == lastIndex) {
+						df.applyPattern("yyyy-MM-dd HH:mm");
+						// 2015-01-01 1:1 --
+						// 2015-01-01
+						// 01:01中间只有一个冒号
 						rtnDate = df.parse(date);
-					} else if (date.indexOf(":") > -1
-							&& lastIndex == length - 1
-							&& date.indexOf(":") == lastIndex) {
-						df.applyPattern("yyyy-MM-dd HH");// 2015-01-01 01:
-															// 只有一个冒号在末尾
+					} else if (date.indexOf(":") > -1 && lastIndex == length - 1 && date.indexOf(":") == lastIndex) {
+						df.applyPattern("yyyy-MM-dd HH");
+						// 2015-01-01 01:
+						// 只有一个冒号在末尾
 						date = date.substring(0, length - 1);
 						rtnDate = df.parse(date);
 					}
 				} else if (length == 17) {
 					int lastIndex = date.lastIndexOf(":");
 					if (lastIndex < length - 1) {
-						df.applyPattern("yyyy-MM-dd HH:mm:ss");// 2015-1-1
-																// 1:1:1 --
-																// 2015-01-01
-																// 1:1:1 中间有两个冒号
+						df.applyPattern("yyyy-MM-dd HH:mm:ss");
+						// 2015-1-1
+						// 1:1:1 --
+						// 2015-01-01
+						// 1:1:1 中间有两个冒号
 						if (lastIndex < length - 1 - 2) {
 							date = date.substring(0, lastIndex + 3);
 						}
 						rtnDate = df.parse(date);
 					} else if (lastIndex == length - 1) {
-						df.applyPattern("yyyy-MM-dd HH:mm");// 2015-01-01 1:1 --
-															// 2015-01-01
-															// 01:01中间只有一个冒号
+						df.applyPattern("yyyy-MM-dd HH:mm");
+						// 2015-01-01 1:1 --
+						// 2015-01-01
+						// 01:01中间只有一个冒号
 						date = date.substring(0, length - 1);
 						rtnDate = df.parse(date);
 					}
 				} else if (length >= 18) {
-					df.applyPattern("yyyy-MM-dd HH:mm:ss");// 2015-1-1 1:1:1 --
-															// 2015-01-01
-															// 01:01:01 有两个冒号
+					df.applyPattern("yyyy-MM-dd HH:mm:ss");
+					// 2015-1-1 1:1:1 --
+					// 2015-01-01
+					// 01:01:01 有两个冒号
 					int lastIndex = date.lastIndexOf(":");
 					if (lastIndex < length - 1 - 2) {
 						date = date.substring(0, lastIndex + 3);
@@ -431,15 +441,17 @@ public class DateHelper {
 		c.add(calendarField, amount);
 		return c.getTime();
 	}
-	
+
 	/**
 	 * 描述：日期格式化
-	 * @param date 日期
-	 * @param pattern 格式化类型
+	 * 
+	 * @param date
+	 *            日期
+	 * @param pattern
+	 *            格式化类型
 	 * @return
 	 */
-	public static String formatDate(Date date, String pattern)
-	{
+	public static String formatDate(Date date, String pattern) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 		return dateFormat.format(date);
 	}

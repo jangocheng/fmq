@@ -4,7 +4,8 @@ import java.util.Date;
 
 
 /**
- * 入参类
+ * 
+ * @author ljg
  *
  */
 public class UserForm {

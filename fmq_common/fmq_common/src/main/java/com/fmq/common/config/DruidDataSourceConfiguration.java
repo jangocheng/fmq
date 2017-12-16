@@ -17,7 +17,8 @@ import javax.sql.DataSource;
 
 /**
  * http://localhost:8081/druid/sql.html 用户名密码 root/root 访问接口可以打开页面
- * 
+ * @author ljg
+ *
  */
 @Configuration
 @ConditionalOnClass(com.alibaba.druid.pool.DruidDataSource.class)
@@ -70,7 +71,8 @@ public class DruidDataSourceConfiguration {
         servletRegistrationBean.addInitParameter("loginUsername","root");
         servletRegistrationBean.addInitParameter("loginPassword","root");
         //是否能够重置数据.
-        servletRegistrationBean.addInitParameter("resetEnable","false");// 禁用HTML页面上的“Reset All”功能
+        servletRegistrationBean.addInitParameter("resetEnable","false");
+        // 禁用HTML页面上的“Reset All”功能
         return servletRegistrationBean;
     }
 

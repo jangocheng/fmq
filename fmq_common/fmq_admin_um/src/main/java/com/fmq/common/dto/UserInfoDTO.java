@@ -2,22 +2,27 @@ package com.fmq.common.dto;
 
 
 import com.fmq.common.base.BaseDTO;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 public class UserInfoDTO extends BaseDTO {
-
-	/**
-	* 
-	*/
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private String userName;
 	private String passWord;
 	private String idCard;
-	private String sex; // 0：男 1:女
+	/**
+	 *  0：男 1:女
+	 */
+	private String sex; 
 	private String mobilePhone;
 	private String ip;
-	private String userVIP; // 0 :是 1:否
-	
+	/**
+	 *  0 :是 1:否
+	 */
+	private String userVIP; 
 
 	public String getId() {
 		return id;
@@ -81,6 +86,12 @@ public class UserInfoDTO extends BaseDTO {
 
 	public void setUserVIP(String userVIP) {
 		this.userVIP = userVIP;
+	}
+
+	@Override
+	public String toString() {
+		return "UserInfoDTO [id=" + id + ", userName=" + userName + ", passWord=" + passWord + ", idCard=" + idCard
+				+ ", sex=" + sex + ", mobilePhone=" + mobilePhone + ", ip=" + ip + ", userVIP=" + userVIP + "]";
 	}
 	
 

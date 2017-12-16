@@ -3,22 +3,50 @@ package com.fmq.common.dto;
 import java.util.Date;
 
 import com.fmq.common.base.BaseDTO;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 public class AdminUserRoleDTO extends BaseDTO {
 
 	/**
 	 * 用户权限
 	 */
 	private static final long serialVersionUID = 1L;
-
-	private String id;// 主键
-	private String userId;// 用户id
-	private String roleId;//角色编码
-	private String isValidity;//是否有效，1有效，0无效
-	private Date createdDate;// 创建时间
-	private String createdBy;// 创建人
-	private Date updatedDate;// 更新时间
-	private String updatedBy;// 更新人
+	/**
+	 * 主键
+	 */
+	private String id;
+	/**
+	 * 用户id
+	 */
+	private String userId;
+	/**
+	 * 角色编码
+	 */
+	private String roleId;
+	/**
+	 * 是否有效，1有效，0无效
+	 */
+	private String isValidity;
+	/**
+	 * 创建时间
+	 */
+	private Date createdDate;
+	/**
+	 * 创建人
+	 */
+	private String createdBy;
+	/**
+	 * 更新时间
+	 */
+	private Date updatedDate;
+	/**
+	 * 更新人
+	 * 
+	 */
+	private String updatedBy;
 
 	public String getId() {
 		return id;
@@ -82,6 +110,13 @@ public class AdminUserRoleDTO extends BaseDTO {
 
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
+	}
+
+	@Override
+	public String toString() {
+		return "AdminUserRoleDTO [id=" + id + ", userId=" + userId + ", roleId=" + roleId + ", isValidity=" + isValidity
+				+ ", createdDate=" + createdDate + ", createdBy=" + createdBy + ", updatedDate=" + updatedDate
+				+ ", updatedBy=" + updatedBy + "]";
 	}
 
 }

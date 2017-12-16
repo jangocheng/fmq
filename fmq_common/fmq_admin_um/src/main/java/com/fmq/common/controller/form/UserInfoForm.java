@@ -1,15 +1,25 @@
 package com.fmq.common.controller.form;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 public class UserInfoForm {
 	
 	private String id;
 	private String userName;
 	private String passWord;
 	private String idCard;
-	private String sex; // 0：男 1:女
+	/**
+	 *  0：男 1:女
+	 */
+	private String sex; 
 	private String mobilePhone;
 	private String ip;
-	private String userVIP; // 0 :是 1:否
+	/**
+	 *  0 :是 1:否
+	 */
+	private String userVIP; 
 	public String getId() {
 		return id;
 	}

@@ -6,13 +6,11 @@ import com.fmq.common.base.BaseDTO;
 
 /**
  * 实体类
+ * @author ljg
  *
  */
 public class UserDTO extends BaseDTO {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public int id;
@@ -42,6 +40,11 @@ public class UserDTO extends BaseDTO {
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+	@Override
+	public String toString() {
+		return "UserDTO [id=" + id + ", userName=" + userName + ", passWord=" + passWord + ", createDate=" + createDate
+				+ "]";
 	}
 
 }

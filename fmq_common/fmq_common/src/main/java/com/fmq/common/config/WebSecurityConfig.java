@@ -12,7 +12,11 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistration
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 @Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 
@@ -27,6 +31,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 		return new SecurityInterceptor();
 	}
 
+	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		InterceptorRegistration addInterceptor = registry.addInterceptor(getSecurityInterceptor());
 
@@ -43,8 +48,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 		@Override
 		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 				throws Exception {
-			
-			
+
 			HttpSession session = request.getSession();
 			if (session.getAttribute(SESSION_KEY) != null) {
 				logger.info("登陆的账户  " + session.getAttribute(SESSION_KEY));

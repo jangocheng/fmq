@@ -9,25 +9,17 @@ import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import javax.websocket.server.PathParam;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-//import org.springframework.web.bind.annotation.ResponseBody;
-//import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UrlPathHelper;
 
 import com.fmq.common.base.BaseController;
-import com.fmq.common.controller.vo.CommonVO;
-import com.fmq.common.controller.vo.TestDemoVO;
 
 /**
  * 测试Controller 和Controller 类注解的使用
@@ -39,35 +31,46 @@ import com.fmq.common.controller.vo.TestDemoVO;
  *
  */
 
-// @Controller
 @RestController
 @SpringBootApplication
 public class DemoController extends BaseController {
 
-	// http://localhost:8080/echo/message
+	/**
+	 *  http://localhost:8080/echo/message
+	 * @param msg
+	 * @return
+	 */
 	@RequestMapping(value = "/echo/{message}", method = RequestMethod.GET)
 	public String echo1(@PathVariable("message") String msg) {
 		return "echo  " + msg;
 	}
 
-	/*
-	 * 
-	 * 默认传值
+	/**
+	 *  @RequestMapping(value = "/say", method = RequestMethod.GET)
+	 * @param msg
+	 * @return
 	 */
-	// @RequestMapping(value = "/say", method = RequestMethod.GET)
 	@GetMapping("/say")
 	public String say(@RequestParam(value = "say", required = false, defaultValue = "0") String msg) {
 		return "echo  " + msg;
 	}
 
-	// http://localhost:8089/mess?msg=1
-	// http://localhost:8089/ec?msg=1
+	/**
+	 *  http://localhost:8089/mess?msg=1
+	 http://localhost:8089/ec?msg=1
+	 * @param msg
+	 * @return
+	 */
 	@RequestMapping(value = { "/mess", "/ec" }, method = RequestMethod.GET)
 	public String echo2(String msg) {
 		return "echo  " + msg;
 	}
 
-	// http://localhost:8080/esa?num=2
+	/**
+	 *  http://localhost:8080/esa?num=2
+	 * @param num
+	 * @return
+	 */
 	@RequestMapping("/esa")
 	public Object nul(int num) {
 		return "" + num * 2;
@@ -88,7 +91,8 @@ public class DemoController extends BaseController {
 		try {
 			System.out.println("ip地址" + req.getRemoteAddr() + "获取机器和ip" + InetAddress.getLocalHost());
 			System.out.println("客户端编码 " + res.getCharacterEncoding());
-			System.out.println("真实路径 " + req.getServletContext().getRealPath("/"));// Users/ljg/myapp/workspace/common/
+			// Users/ljg/myapp/workspace/common/
+			System.out.println("真实路径 " + req.getServletContext().getRealPath("/"));
 			System.out.println("session " + req.getSession().getId());
 			System.out.println("Cookies " + req.getCookies().toString());
 
@@ -124,15 +128,21 @@ public class DemoController extends BaseController {
 		return "objet";
 	}
 
-	// http://localhost:8080/echo?msg=echo
+	/**
+	 *  http://localhost:8080/echo?msg=echo
+	 * @param msg
+	 * @return
+	 */
 	@RequestMapping("/echo")
 	public String echo(String msg) {
 		return "echo  " + msg;
 	}
 
-	// http://localhost:8080/
+	/**
+	 *  http://localhost:8080/
+	 * @return
+	 */
 	@RequestMapping("/")
-	// @ResponseBody
 	public String home() {
 		return "home";
 	}

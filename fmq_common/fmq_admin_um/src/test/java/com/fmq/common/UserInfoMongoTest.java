@@ -9,10 +9,11 @@ import com.fmq.common.base.BaseTest;
 import com.fmq.common.dao.UserInfoMongoDAO;
 import com.fmq.common.dto.UserInfoDTO;
 /**
- * 参考 文章
- * https://www.cnblogs.com/ityouknow/p/6828919.html
  * @author ljg
  *
+ * 参考 文章
+ * https://www.cnblogs.com/ityouknow/p/6828919.html
+ * 
  */
 @SpringBootTest(classes = StartApplication.class)
 @WebAppConfiguration
@@ -21,7 +22,7 @@ public class UserInfoMongoTest extends BaseTest {
 	@Autowired
 	private UserInfoMongoDAO userDao;
 
-	//@Test
+	@Test
 	public void testSaveUser() throws Exception {
 		UserInfoDTO user = new UserInfoDTO();
 		user.setUserName("abc");
@@ -38,7 +39,7 @@ public class UserInfoMongoTest extends BaseTest {
 		System.out.println("user is " + user);
 	}
 
-	//@Test
+	@Test
 	public void updateUser() {
 		UserInfoDTO user = new UserInfoDTO();
 		user.setId("5a1fcac4f707160388b90666");
@@ -47,7 +48,7 @@ public class UserInfoMongoTest extends BaseTest {
 		userDao.updateUser(user);
 	}
 
-	//@Test
+	@Test
 	public void deleteUserById() {
 		userDao.deleteUserById("5a1fcac4f707160388b90666");
 	}

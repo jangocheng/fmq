@@ -22,7 +22,11 @@ import com.fmq.common.controller.vo.LoginVO;
 import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.LoginService;
 import com.fmq.common.service.UserInfoService;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 @RestController
 public class LoginController extends BaseController {
 	@Autowired
@@ -31,7 +35,7 @@ public class LoginController extends BaseController {
 	UserInfoService userInfoService;
 
 	@GetMapping("/index")
-	public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model) {
+	public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model, Object webSecurityConfig) {
 		model.addAttribute("name", account);
 		return "index";
 	}

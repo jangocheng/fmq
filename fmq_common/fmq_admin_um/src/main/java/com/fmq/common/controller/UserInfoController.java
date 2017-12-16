@@ -12,7 +12,11 @@ import com.fmq.common.controller.form.UserInfoForm;
 import com.fmq.common.controller.vo.CommonVO;
 import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.UserInfoService;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 @RestController
 public class UserInfoController extends  BaseController{
 

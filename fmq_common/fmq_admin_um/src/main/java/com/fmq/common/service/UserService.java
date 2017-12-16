@@ -6,18 +6,40 @@ import com.fmq.common.dto.UserDTO;
 
 /**
  * 业务逻辑接口类
+ * 
+ * @author ljg
  *
  */
 public interface UserService {
+	/**
+	 * 查询全部
+	 * @return
+	 */
+
+	public List<UserDTO> findAll();
 
 	/**
+	 * 根据name查询
+	 * @param userName
+	 * @return
 	 */
-	public List<UserDTO>  findAll();
 	UserDTO findUerById(String userName);
 
+	/**
+	 * 删除
+	 * @param id
+	 */
 	void deleteUser(String id);
 
+	/**
+	 * 新增
+	 * @param userDto
+	 */
 	void saveUser(UserDTO userDto);
 
+	/**
+	 * 修改
+	 * @param userDto
+	 */
 	void updateUser(UserDTO userDto);
 }

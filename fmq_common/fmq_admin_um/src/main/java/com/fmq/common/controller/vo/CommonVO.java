@@ -3,7 +3,11 @@ package com.fmq.common.controller.vo;
 import java.io.Serializable;
 
 import com.alibaba.fastjson.JSONObject;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 public class CommonVO implements Serializable{
 
 	/**
@@ -41,7 +45,7 @@ public class CommonVO implements Serializable{
 	public void setResponseMsg(String responseMsg) {
 		this.responseMsg = responseMsg;
 	}
-
+	@Override
 	public String toString() {
 		return JSONObject.toJSONString(this);
 	}

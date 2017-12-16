@@ -7,7 +7,11 @@ import com.fmq.common.base.BaseService;
 import com.fmq.common.dao.UserInfoMongoDAO;
 import com.fmq.common.dto.UserInfoDTO;
 import com.fmq.common.service.UserInfoService;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 @Service
 public class UserInfoServiceImpl extends BaseService implements UserInfoService {
 	@Autowired

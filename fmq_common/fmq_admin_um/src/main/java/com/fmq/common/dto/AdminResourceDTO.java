@@ -3,28 +3,73 @@ package com.fmq.common.dto;
 import java.util.Date;
 
 import com.fmq.common.base.BaseDTO;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 public class AdminResourceDTO extends BaseDTO {
 
 	/**
 	 * 资源
 	 */
 	private static final long serialVersionUID = 1L;
-
-	private String id; // 主键
-	private String resourceName; // 资源名称
-	private String resourceCode;// 资源编码
-	private String resourceType;// 资源类别，1：系统，2菜单，3操作或功能
-	private String resourceUrl; // 资源URL
-	private String resourceDesc;// 描述
-	private String parentId; // 父节点ID
-	private String isValidity;// 是否有效，1有效，0无效
-	private String pageUrl;// 页面地址
-	private Date createdDate;// 创建时间
-	private String createdBy;// 创建人
-	private Date updatedDate;// 更新时间
-	private String updatedBy;// 更新人
-	private String sort;// 排序
+	/**
+	 * 主键
+	 */
+	private String id;
+	/**
+	 * 资源名称
+	 */
+	private String resourceName;
+	/**
+	 * 资源编码
+	 */
+	private String resourceCode;
+	/**
+	 * 资源类别，1：系统，2菜单，3操作或功能
+	 */
+	private String resourceType;
+	/**
+	 * 资源URL
+	 */
+	private String resourceUrl;
+	/**
+	 * 描述
+	 */
+	private String resourceDesc;
+	/**
+	 * 父节点ID
+	 */
+	private String parentId;
+	/**
+	 * 是否有效，1有效，0无效
+	 */
+	private String isValidity;
+	/**
+	 * 页面地址
+	 */
+	private String pageUrl;
+	/**
+	 * 创建时间
+	 */
+	private Date createdDate;
+	/**
+	 * 创建人
+	 */
+	private String createdBy;
+	/**
+	 * 更新时间
+	 */
+	private Date updatedDate;
+	/**
+	 * 更新人
+	 */
+	private String updatedBy;
+	/**
+	 * 排序
+	 */
+	private String sort;
 
 	public String getId() {
 		return id;
@@ -136,6 +181,15 @@ public class AdminResourceDTO extends BaseDTO {
 
 	public void setSort(String sort) {
 		this.sort = sort;
+	}
+
+	@Override
+	public String toString() {
+		return "AdminResourceDTO [id=" + id + ", resourceName=" + resourceName + ", resourceCode=" + resourceCode
+				+ ", resourceType=" + resourceType + ", resourceUrl=" + resourceUrl + ", resourceDesc=" + resourceDesc
+				+ ", parentId=" + parentId + ", isValidity=" + isValidity + ", pageUrl=" + pageUrl + ", createdDate="
+				+ createdDate + ", createdBy=" + createdBy + ", updatedDate=" + updatedDate + ", updatedBy=" + updatedBy
+				+ ", sort=" + sort + "]";
 	}
 
 }

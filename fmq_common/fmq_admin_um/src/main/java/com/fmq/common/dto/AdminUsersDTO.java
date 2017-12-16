@@ -3,7 +3,11 @@ package com.fmq.common.dto;
 import java.util.Date;
 
 import com.fmq.common.base.BaseDTO;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 public class AdminUsersDTO extends BaseDTO {
 
 	/**
@@ -11,19 +15,58 @@ public class AdminUsersDTO extends BaseDTO {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String id;// 主键
-	private String userName;// 用户名
-	private String password;// 密码
-	private String isValidity;// 是否有效，1有效，0无效
-	private String userCode;// 用户编码，与用户名相同
-	private String mobile;// 手机
-	private String email;// 邮件
-	private String deptName;// 部门名称
-	private String lastName;// 中文名称
-	private Date createdDate;// 创建时间
-	private String createdBy;// 创建人
-	private Date updatedDate;// 更新时间
-	private String updatedBy;// 更新人
+	/**
+	 *  主键
+	 */
+	private String id;
+	/**
+	 *  用户名
+	 */
+	private String userName;
+	/**
+	 * 密码
+	 */
+	private String password;
+	/**
+	 *  是否有效，1有效，0无效
+	 */
+	private String isValidity;
+	/**
+	 *  用户编码，与用户名相同
+	 */
+	private String userCode;
+	/**
+	 *  手机
+	 */
+	private String mobile;
+	/**
+	 *  邮件
+	 */
+	private String email;
+	/**
+	 * 部门名称
+	 */
+	private String deptName;
+	/**
+	 * 中文名称
+	 */
+	private String lastName;
+	/**
+	 *  创建时间
+	 */
+	private Date createdDate;
+	/**
+	 * 创建人
+	 */
+	private String createdBy;
+	/**
+	 * 更新时间
+	 */
+	private Date updatedDate;
+	/**
+	 *  更新人
+	 */
+	private String updatedBy;
 
 	public String getId() {
 		return id;
@@ -127,6 +170,14 @@ public class AdminUsersDTO extends BaseDTO {
 
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
+	}
+
+	@Override
+	public String toString() {
+		return "AdminUsersDTO [id=" + id + ", userName=" + userName + ", password=" + password + ", isValidity="
+				+ isValidity + ", userCode=" + userCode + ", mobile=" + mobile + ", email=" + email + ", deptName="
+				+ deptName + ", lastName=" + lastName + ", createdDate=" + createdDate + ", createdBy=" + createdBy
+				+ ", updatedDate=" + updatedDate + ", updatedBy=" + updatedBy + "]";
 	}
 
 }

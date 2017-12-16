@@ -1,5 +1,9 @@
 package com.fmq.common.base;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 public class RspCodeConstants {
 	
 	/**

@@ -10,7 +10,11 @@ import org.springframework.stereotype.Component;
 import com.fmq.common.base.BaseMongoDao;
 import com.fmq.common.dao.UserInfoMongoDAO;
 import com.fmq.common.dto.UserInfoDTO;
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 @Component
 public class UserInfoMongoDAOImpl extends BaseMongoDao implements UserInfoMongoDAO {
 	@Autowired

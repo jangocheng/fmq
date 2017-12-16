@@ -2,17 +2,22 @@ package com.fmq.common.base;
 
 import java.io.Serializable;
 
-
-
 import com.alibaba.fastjson.JSONObject;
 
-
-public class BaseDTO implements Serializable,Cloneable{
+/**
+ * 
+ * @author ljg
+ *
+ *
+ */
+public class BaseDTO implements Serializable, Cloneable {
 
 	private static final long serialVersionUID = 1L;
-	
-	public BaseDTO() {}
 
+	public BaseDTO() {
+	}
+
+	@Override
 	public Object clone() {
 		try {
 			return super.clone();
@@ -20,11 +25,10 @@ public class BaseDTO implements Serializable,Cloneable{
 			return null;
 		}
 	}
+
+	@Override
 	public String toString() {
 		return JSONObject.toJSONString(this);
-	} 
+	}
 
-	
-	
-	
 }

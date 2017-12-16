@@ -6,7 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fmq.common.base.BaseController;
 
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 
 @RestController 
 @RequestMapping("/log")  

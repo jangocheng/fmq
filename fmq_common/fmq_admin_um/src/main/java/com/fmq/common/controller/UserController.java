@@ -12,6 +12,9 @@ import com.fmq.common.dto.UserDTO;
 import com.fmq.common.service.UserService;
 
 /**
+ * 
+ * @author ljg
+ *
  */
 @RestController
 public class UserController {

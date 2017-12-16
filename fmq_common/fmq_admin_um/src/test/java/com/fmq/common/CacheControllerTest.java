@@ -8,7 +8,11 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.fmq.common.base.BaseTest;
 
-
+/**
+ * 
+ * @author ljg
+ *
+ */
 @SpringBootTest(classes=StartApplication.class)
 @WebAppConfiguration
 public class CacheControllerTest extends BaseTest{
