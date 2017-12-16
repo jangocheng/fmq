@@ -9,7 +9,9 @@ import java.util.regex.Pattern;
  *
  */
 public class MoblieValidator {
-	//手机号码正则表达式
+	/**
+	 * 手机号码正则表达式
+	 */
 	public static final String PATTERRN="^[1][3,4,5,7,8][0-9] {9}$";
 	/**
 	 * 手机号码
