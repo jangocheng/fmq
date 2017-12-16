@@ -46,7 +46,7 @@ public class BaseMongoDao extends AbstractMongoConfiguration {
 	public MongoTemplate mongoTemplate() throws Exception {
 
 		MongoTemplate mongoTemplate = new MongoTemplate(mongo(), mongodbName);
-		logger.info("连接mongo ：" + mongoTemplate.getDb().getName() + "  库");
+		logger.info(" connect mongo ：" + mongoTemplate.getDb().getName() + " library");
 		return mongoTemplate;
 
 	}

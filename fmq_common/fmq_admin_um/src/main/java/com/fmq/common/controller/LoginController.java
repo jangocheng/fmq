@@ -34,11 +34,11 @@ public class LoginController extends BaseController {
 	@Autowired
 	UserInfoService userInfoService;
 
-	@GetMapping("/index")
-	public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model, Object webSecurityConfig) {
-		model.addAttribute("name", account);
-		return "index";
-	}
+//	@GetMapping("/index")
+//	public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model, Object WebSecurityConfig) {
+//		model.addAttribute("name", account);
+//		return "index";
+//	}
 
 
 	@RequestMapping("/login")

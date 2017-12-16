@@ -100,7 +100,7 @@
 	</dependencyManagement>
 	<!-- 打包 依赖关系 -->
 	<build>
-		<finalName>common</finalName>
+		<finalName>fmq_admin_um</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

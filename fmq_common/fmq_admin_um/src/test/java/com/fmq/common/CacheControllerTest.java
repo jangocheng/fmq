@@ -1,21 +1,23 @@
 package com.fmq.common;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.fmq.common.base.BaseTest;
 
 /**
  * 
  * @author ljg
  *
  */
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes=StartApplication.class)
 @WebAppConfiguration
-public class CacheControllerTest extends BaseTest{
+public class CacheControllerTest {
 
     @Autowired
     private StringRedisTemplate redis;

@@ -20,9 +20,9 @@ import org.springframework.web.filter.CorsFilter;
 public class StartApplication {
 	public static void main(String[] args) throws Exception {
 		Logger logger = LoggerFactory.getLogger(StartApplication.class);
-		logger.info(">>>>> fmq_admin_um StartApplication 正在启动 <<<<<");
+		logger.info(">>>>> fmq_admin_um StartApplication Start up <<<<<");
 		SpringApplication.run(StartApplication.class, args);
-		logger.info(">>>>> fmq_admin_um StartApplication 启动完成 <<<<<");
+		logger.info(">>>>> fmq_admin_um StartApplication Start end <<<<<");
 	}
 
 	private CorsConfiguration buildConfig() {  

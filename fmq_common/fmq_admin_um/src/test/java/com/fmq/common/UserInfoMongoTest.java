@@ -1,13 +1,15 @@
 package com.fmq.common;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.fmq.common.base.BaseTest;
 import com.fmq.common.dao.UserInfoMongoDAO;
 import com.fmq.common.dto.UserInfoDTO;
+
 /**
  * @author ljg
  *
@@ -15,9 +17,10 @@ import com.fmq.common.dto.UserInfoDTO;
  * https://www.cnblogs.com/ityouknow/p/6828919.html
  * 
  */
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = StartApplication.class)
 @WebAppConfiguration
-public class UserInfoMongoTest extends BaseTest {
+public class UserInfoMongoTest  {
 
 	@Autowired
 	private UserInfoMongoDAO userDao;

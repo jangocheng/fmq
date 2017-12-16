@@ -4,9 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
  * @author ljg
- *
+ *	2017年12月16日
  */
 public class BaseController {
 	
