@@ -1,4 +1,4 @@
-package com.fmq.common.base;
+package com.fmq.common.config;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +26,7 @@ import com.mongodb.ServerAddress;
  */
 
 @Configuration
-public class BaseMongoDao extends AbstractMongoConfiguration {
+public class MongoConfig extends AbstractMongoConfiguration {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Value("${mongodb.host}")
 	private String mongodbHost;

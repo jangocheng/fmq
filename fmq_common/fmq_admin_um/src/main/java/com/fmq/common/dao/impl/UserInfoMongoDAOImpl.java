@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
-import com.fmq.common.base.BaseMongoDao;
+import com.fmq.common.config.MongoConfig;
 import com.fmq.common.dao.UserInfoMongoDAO;
 import com.fmq.common.dto.UserInfoDTO;
 /**
@@ -16,7 +16,7 @@ import com.fmq.common.dto.UserInfoDTO;
  *
  */
 @Component
-public class UserInfoMongoDAOImpl extends BaseMongoDao implements UserInfoMongoDAO {
+public class UserInfoMongoDAOImpl extends MongoConfig implements UserInfoMongoDAO {
 	@Autowired
 	private MongoTemplate mongoTemplate;
 
