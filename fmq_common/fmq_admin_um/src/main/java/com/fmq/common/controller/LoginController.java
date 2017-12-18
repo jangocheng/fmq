@@ -46,7 +46,7 @@ public class LoginController extends BaseController {
 	public CommonVO loginPost(@RequestParam (value="account" )String account ,
 			@RequestParam (value="password" )String password ,
 			HttpServletRequest request ,HttpServletResponse response,HttpSession session) {
-		response.setHeader("Access-Control-Allow-Origin", "*");
+		//response.setHeader("Access-Control-Allow-Origin", "*");
 		LoginVO vo = new LoginVO();
 
 		if ("".equals(account) || account == null) {
