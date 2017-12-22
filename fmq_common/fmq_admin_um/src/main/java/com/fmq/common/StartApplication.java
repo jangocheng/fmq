@@ -6,17 +6,23 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import de.codecentric.boot.admin.config.EnableAdminServer;
 
 /**
  * 项目启动类
  * @author ljg
  *
  */
+@RestController
 @SpringBootApplication
-@EnableWebSecurity
+
+@EnableAdminServer
 public class StartApplication {
 	public static void main(String[] args) throws Exception {
 		Logger logger = LoggerFactory.getLogger(StartApplication.class);
@@ -24,6 +30,12 @@ public class StartApplication {
 		SpringApplication.run(StartApplication.class, args);
 		logger.info(">>>>> fmq_admin_um StartApplication Start end <<<<<");
 	}
+	
+	
+	 @RequestMapping("/security")  
+	    public String security() {  
+	        return "hello world security";  
+	    } 
 
 /*	private CorsConfiguration buildConfig() {  
         CorsConfiguration corsConfiguration = new CorsConfiguration();  

@@ -7,8 +7,13 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -22,7 +27,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  *
  */
 @Configuration
-public class WebSecurityConfig extends WebMvcConfigurerAdapter {
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter{//WebMvcConfigurerAdapter {
 
 	/**
 	 * 登录session key
@@ -35,7 +41,34 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 		return new SecurityInterceptor();
 	}
 
+	
 	@Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+                .antMatchers("/", "/home").permitAll()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+            .logout()
+                .permitAll();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .inMemoryAuthentication()
+                .withUser("user").password("password").roles("USER");
+    }
+
+
+	
+	
+	
+	/*@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		InterceptorRegistration addInterceptor = registry.addInterceptor(getSecurityInterceptor());
 
@@ -45,12 +78,12 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 
 		// 拦截配置
 		addInterceptor.addPathPatterns("/**");
-	}
+	}*/
 
 	/**
 	 * spring boot  跨域 Cors
 	 */
-	@Override
+	/*@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
 				.allowedMethods("*")
@@ -62,7 +95,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 		//allowedHeaders：允许所有的请求header访问，可以自定义设置任意请求头信息，如："X-YAUTH-TOKEN"
 
 	}
-	
+	*/
 	
 	
 	private class SecurityInterceptor extends HandlerInterceptorAdapter {
