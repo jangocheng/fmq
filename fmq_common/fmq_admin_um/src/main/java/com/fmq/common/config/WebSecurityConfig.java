@@ -44,8 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{//WebMvcConf
 	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-            .authorizeRequests()
+        http.authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
                 .anyRequest().authenticated()
                 .and()
