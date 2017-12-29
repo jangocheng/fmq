@@ -17,11 +17,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
 
 		<!-- 用于构建Web的入门者，包括使用Spring MVC的RESTful应用程序。使用Tomcat作为默认的嵌入容器 -->
 		<dependency>
@@ -62,7 +57,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+		</dependency>
 		<!-- cache 缓存 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
