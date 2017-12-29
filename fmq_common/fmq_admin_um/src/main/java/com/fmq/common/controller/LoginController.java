@@ -27,18 +27,19 @@ import com.fmq.common.service.UserInfoService;
  * @author ljg
  *
  */
-@RestController
+//@RestController
 public class LoginController extends BaseController {
 	@Autowired
 	LoginService loginService;
 	@Autowired
 	UserInfoService userInfoService;
-
-//	@GetMapping("/index")
-//	public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model, Object WebSecurityConfig) {
-//		model.addAttribute("name", account);
-//		return "index";
-//	}
+/*
+	@GetMapping("/index")
+	public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model, Object WebSecurityConfig) {
+		model.addAttribute("name", account);
+		return "index";
+	}
+*/
 
 
 	@RequestMapping("/login")
@@ -46,7 +47,7 @@ public class LoginController extends BaseController {
 	public CommonVO loginPost(@RequestParam (value="account" )String account ,
 			@RequestParam (value="password" )String password ,
 			HttpServletRequest request ,HttpServletResponse response,HttpSession session) {
-		//response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		LoginVO vo = new LoginVO();
 
 		if ("".equals(account) || account == null) {
@@ -81,7 +82,7 @@ public class LoginController extends BaseController {
 				vo.setResponseCode(RspCodeConstants.RSP_CODE_SUCCESS);
 				vo.setResponseMsg("登陆成功");
 				// 设置session
-				session.setAttribute(WebSecurityConfig.SESSION_KEY, account);
+				//session.setAttribute(WebSecurityConfig.SESSION_KEY, account);
 				return vo;
 			}
 		}
@@ -91,7 +92,7 @@ public class LoginController extends BaseController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		// 移除session
-		session.removeAttribute(WebSecurityConfig.SESSION_KEY);
+		//session.removeAttribute(WebSecurityConfig.SESSION_KEY);
 		return "redirect:/login";
 	}
 

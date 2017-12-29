@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.cors.CorsConfiguration;
@@ -19,10 +19,8 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
  * @author ljg
  *
  */
-@RestController
 @SpringBootApplication
-
-@EnableAdminServer
+@EnableAdminServer //开启Spring Boot Admin 服务
 public class StartApplication {
 	public static void main(String[] args) throws Exception {
 		Logger logger = LoggerFactory.getLogger(StartApplication.class);
@@ -30,32 +28,26 @@ public class StartApplication {
 		SpringApplication.run(StartApplication.class, args);
 		logger.info(">>>>> fmq_admin_um StartApplication Start end <<<<<");
 	}
-	
-	
-	 @RequestMapping("/security")  
-	    public String security() {  
-	        return "hello world security";  
-	    } 
 
-/*	private CorsConfiguration buildConfig() {  
+	private CorsConfiguration buildConfig() {  
         CorsConfiguration corsConfiguration = new CorsConfiguration();  
         corsConfiguration.addAllowedOrigin("*");  
         corsConfiguration.addAllowedHeader("*");  
         corsConfiguration.addAllowedMethod("*");  
         return corsConfiguration;  
     }  
-  */    
+     
     /** 
      * 跨域过滤器 
      * @return 
      */  
-    /*@Bean  
+    @Bean  
     public CorsFilter corsFilter() {  
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();  
         source.registerCorsConfiguration("/**", buildConfig());  
         return new CorsFilter(source);  
     }  
-	*/
+	
 	
 	
 }

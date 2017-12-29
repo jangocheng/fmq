@@ -61,6 +61,11 @@
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
 		</dependency>
+		<!-- 使用Spring Boot的执行器提供生产准备功能，帮助您监控和管理您的应用程序 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<!-- cache 缓存 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -114,10 +119,9 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 		</dependency>
-		<!-- 使用Spring Boot的执行器提供生产准备功能，帮助您监控和管理您的应用程序 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<!-- 使用Spring Framework的WebSocket支持构建WebSocket应用程序 -->
 		<dependency>
@@ -143,7 +147,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+		</dependency>
 		<!-- 集成dubbo -->
 		<dependency>
 			<groupId>com.gitee.reger</groupId>
