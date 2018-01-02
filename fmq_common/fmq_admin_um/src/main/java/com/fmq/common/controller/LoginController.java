@@ -27,7 +27,7 @@ import com.fmq.common.service.UserInfoService;
  * @author ljg
  *
  */
-//@RestController
+@RestController
 public class LoginController extends BaseController {
 	@Autowired
 	LoginService loginService;
