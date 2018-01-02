@@ -50,7 +50,6 @@ public class UserController {
 		userDto.setUserName(userName);
 		userDto.setPassWord(passWord);
 		userService.updateUser(userDto);
-
 	}
 
 	@RequestMapping("/user/deleteUser")
