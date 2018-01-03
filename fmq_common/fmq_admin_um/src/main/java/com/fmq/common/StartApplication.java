@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +18,15 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
 /**
  * 项目启动类
  * @author ljg
+ * 事务处理
+ *spring Boot 使用事务非常简单，首先使用注解 @EnableTransactionManagement开启事务支持后，
+ *然后在访问数据库的Service方法上添加注解 @Transactional 
  *
+ *@EnableTransactionManagement放在启动类上
  */
 @SpringBootApplication
 @EnableAdminServer //开启Spring Boot Admin 服务
+//@EnableCaching //开启缓存支持
 public class StartApplication {
 	public static void main(String[] args) throws Exception {
 		Logger logger = LoggerFactory.getLogger(StartApplication.class);
