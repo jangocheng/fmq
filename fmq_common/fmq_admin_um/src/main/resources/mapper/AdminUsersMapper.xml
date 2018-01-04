@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fmq.common.dao.AdminUsersDao">
+	<resultMap id="BaseResultMap" type="com.fmq.common.dto.AdminUsersDTO">
+		<result column="id" property="id" />
+		<result column="user_Name" property="userName" />
+		<result column="pass_Word" property="passWord" />
+		<result column="is_Validity" property="isValidity" />
+		<result column="user_Code" property="userCode" />
+		<result column="mobile" property="mobile" />
+		<result column="email" property="email" />
+		<result column="dept_Name" property="deptName" />
+		<result column="last_Name" property="lastName" />
+		<result column="created_Date" property="createdDate" />
+		<result column="created_By" property="createdBy" />
+		<result column="updated_Date" property="updatedDate" />
+		<result column="updated_By" property="updatedBy" />
+	</resultMap>
+
+	<parameterMap id="adminUsers" type="com.fmq.common.dto.AdminUsersDTO" />
+
+	<sql id="Base_Column_List">
+		id, userName, passWord,isValidity,userCode,mobile,email,deptName,lastName,createdDate,createdBy,updatedDate,updatedBy
+	</sql>
+	<select id="findAdminUsersAll" resultType="com.fmq.common.dto.AdminUsersDTO">
+	  select
+		<include refid="Base_Column_List" />
+		from ADMIN_USERS
+	</select>
+
+	<select id="findAdminUsersById" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from ADMIN_USERS
+		where id = #{id}
+	</select>
+
+	<insert id="saveAdminUsers" parameterType="com.fmq.common.dto.AdminUsersDTO">
+		insert into ADMIN_USERS (id, userName, passWord,isValidity,userCode,mobile,email,deptName,lastName,createdDate,createdBy,updatedDate,updatedBy)
+		values (#{id,jdbcType=VARCHAR},
+		#{userName,jdbcType=VARCHAR},
+		#{passWord,jdbcType=VARCHAR},
+		#{isValidity,jdbcType=VARCHAR},
+		#{userCode,jdbcType=VARCHAR},
+		#{mobile,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{deptName,jdbcType=VARCHAR},
+		#{lastName,jdbcType=VARCHAR},
+		#{createdDate,jdbcType=DATE},
+		#{createdBy,jdbcType=VARCHAR},
+		#{updatedDate,jdbcType=DATE},
+		#{updatedBy,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="updateAdminUsers" parameterType="com.fmq.common.dto.AdminUsersDTO" flushCache="true">
+		update ADMIN_USERS
+		<set>
+			userName = #{userName,jdbcType=VARCHAR},
+			passWord = #{passWord,jdbcType=VARCHAR},
+			isValidity = #{isValidity,jdbcType=VARCHAR},
+			userCode = #{userCode,jdbcType=VARCHAR},
+			mobile = #{mobile,jdbcType=VARCHAR},
+			email = #{email,jdbcType=VARCHAR},
+			deptName = #{deptName,jdbcType=VARCHAR},
+			lastName = #{lastName,jdbcType=VARCHAR},
+			updatedDate = #{updatedDate,jdbcType=DATE},
+			updatedBy = #{updatedBy,jdbcType=VARCHAR}
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
+	<delete id="deleteAdminUsers" parameterType="java.lang.String">
+		delete from ADMIN_USERS
+		where id = #{id}
+	</delete>
+
+</mapper>
