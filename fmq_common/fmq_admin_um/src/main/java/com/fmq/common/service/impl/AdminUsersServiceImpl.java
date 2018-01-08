@@ -19,6 +19,6 @@ public class AdminUsersServiceImpl extends BaseService implements AdminUsersServ
     AdminUsersDao dao;
     @Override
     public void saveAdminUsers(AdminUsersDTO adminUsersDTO) {
-        dao.saveUser(adminUsersDTO);
+        dao.saveAdminUsers(adminUsersDTO);
     }
 }

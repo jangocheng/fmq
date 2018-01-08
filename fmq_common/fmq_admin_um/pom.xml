@@ -13,11 +13,12 @@
 	<url>http://maven.apache.org</url>
 
 
+
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-
 		<!-- 用于构建Web的入门者，包括使用Spring MVC的RESTful应用程序。使用Tomcat作为默认的嵌入容器 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -194,6 +195,21 @@
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
 		</dependency>
+		<!-- swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+		</dependency>
+
+
+
 
 	</dependencies>
+
+
+
 </project>

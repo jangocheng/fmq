@@ -18,7 +18,7 @@ public interface AdminUsersDao {
      * @param adminUsersDTO
      * @return
      */
-    int saveUser(AdminUsersDTO adminUsersDTO);
+    int saveAdminUsers(AdminUsersDTO adminUsersDTO);
 
 
 }
