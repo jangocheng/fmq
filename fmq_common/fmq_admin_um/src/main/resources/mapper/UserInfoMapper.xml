@@ -25,6 +25,13 @@
 		from UserInfo
 		where id = #{id}
 	</select>
+	
+	<select id="getByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from UserInfo
+		where userName = #{userName}
+	</select>
 
 	<insert id="saveUser" parameterType="com.fmq.common.dto.UserDTO">
 		insert into UserInfo (id,userName, passWord)

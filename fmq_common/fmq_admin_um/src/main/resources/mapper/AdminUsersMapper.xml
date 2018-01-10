@@ -9,6 +9,7 @@
 		<result column="user_Code" property="userCode" />
 		<result column="mobile" property="mobile" />
 		<result column="email" property="email" />
+		<result column="roles" property="roles" />
 		<result column="dept_Name" property="deptName" />
 		<result column="last_Name" property="lastName" />
 		<result column="created_Date" property="createdDate" />
@@ -20,7 +21,7 @@
 	<parameterMap id="adminUsers" type="com.fmq.common.dto.AdminUsersDTO" />
 
 	<sql id="Base_Column_List">
-		id, userName, passWord,isValidity,userCode,mobile,email,deptName,lastName,createdDate,createdBy,updatedDate,updatedBy
+		id, userName, passWord,isValidity,userCode,mobile,email,deptName,lastName,roles,createdDate,createdBy,updatedDate,updatedBy
 	</sql>
 	<select id="findAdminUsersAll" resultType="com.fmq.common.dto.AdminUsersDTO">
 	  select
@@ -34,9 +35,15 @@
 		from ADMIN_USERS
 		where id = #{id}
 	</select>
+	<select id="getByUsername" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from ADMIN_USERS
+		where user_Name = #{userName}
+	</select>
 
 	<insert id="saveAdminUsers" parameterType="com.fmq.common.dto.AdminUsersDTO">
-		insert into ADMIN_USERS (id, userName, passWord,isValidity,userCode,mobile,email,deptName,lastName,createdDate,createdBy,updatedDate,updatedBy)
+		insert into ADMIN_USERS (id, userName, passWord,isValidity,userCode,mobile,email,deptName,lastName,roles,createdDate,createdBy,updatedDate,updatedBy)
 		values (#{id,jdbcType=VARCHAR},
 		#{userName,jdbcType=VARCHAR},
 		#{passWord,jdbcType=VARCHAR},
@@ -46,6 +53,7 @@
 		#{email,jdbcType=VARCHAR},
 		#{deptName,jdbcType=VARCHAR},
 		#{lastName,jdbcType=VARCHAR},
+		#{roles,jdbcType=VARCHAR},
 		#{createdDate,jdbcType=DATE},
 		#{createdBy,jdbcType=VARCHAR},
 		#{updatedDate,jdbcType=DATE},
@@ -63,6 +71,7 @@
 			email = #{email,jdbcType=VARCHAR},
 			deptName = #{deptName,jdbcType=VARCHAR},
 			lastName = #{lastName,jdbcType=VARCHAR},
+			roles = #{roles,jdbcType=VARCHAR},
 			updatedDate = #{updatedDate,jdbcType=DATE},
 			updatedBy = #{updatedBy,jdbcType=VARCHAR}
 		</set>
