@@ -11,6 +11,8 @@ import com.fmq.common.dto.UserDTO;
  *
  */
 public interface UserService {
+	
+	public UserDTO getByUserName(String userName);
 	/**
 	 * 查询全部
 	 * @return

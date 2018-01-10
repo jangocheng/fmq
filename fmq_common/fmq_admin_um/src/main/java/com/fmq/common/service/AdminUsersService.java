@@ -8,4 +8,6 @@ import com.fmq.common.dto.AdminUsersDTO; /**
 public interface AdminUsersService {
 
     void saveAdminUsers(AdminUsersDTO adminUsersDTO);
+
+	AdminUsersDTO getByUsername(String userName);
 }

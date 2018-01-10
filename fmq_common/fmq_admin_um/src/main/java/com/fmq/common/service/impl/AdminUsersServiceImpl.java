@@ -21,4 +21,8 @@ public class AdminUsersServiceImpl extends BaseService implements AdminUsersServ
     public void saveAdminUsers(AdminUsersDTO adminUsersDTO) {
         dao.saveAdminUsers(adminUsersDTO);
     }
+	@Override
+	public AdminUsersDTO getByUsername(String userName) {
+		return dao.getByUsername(userName);
+	}
 }

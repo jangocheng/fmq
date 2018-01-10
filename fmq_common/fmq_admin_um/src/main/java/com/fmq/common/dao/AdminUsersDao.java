@@ -19,6 +19,13 @@ public interface AdminUsersDao {
      * @return
      */
     int saveAdminUsers(AdminUsersDTO adminUsersDTO);
+    /**
+     * 更加用户名查询
+     *
+     * @param username
+     * @return AdminUsersDTO
+     */
+	AdminUsersDTO getByUsername(String userName);
 
 
 }

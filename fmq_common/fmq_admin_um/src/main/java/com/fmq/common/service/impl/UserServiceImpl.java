@@ -30,6 +30,12 @@ public class UserServiceImpl extends BaseService implements UserService {
 	private RedisTemplate redisTemplate;
 
 	@Override
+	public UserDTO getByUserName(String userName) {
+		// 从 DB 中获取用户信息
+		UserDTO dto = dao.getByUserName(userName);
+		return dto;
+	}
+	@Override
 	public UserDTO findUerById(String id) {
 
 		// 从缓存中获取用户信息
