@@ -7,6 +7,7 @@ package com.fmq.common.dao;
  */
 
 import com.fmq.common.dto.AdminUsersDTO;
+
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -19,13 +20,22 @@ public interface AdminUsersDao {
      * @return
      */
     int saveAdminUsers(AdminUsersDTO adminUsersDTO);
+    
     /**
      * 更加用户名查询
      *
      * @param username
      * @return AdminUsersDTO
      */
-	AdminUsersDTO getByUsername(String userName);
+	AdminUsersDTO getByUserUame(String userName);
 
+	/**
+	 *修改
+	 * @param userDto
+	 * @return
+	 */
 
+	int updateAdminUsers(AdminUsersDTO adminUsersDTO);
+	
+	
 }

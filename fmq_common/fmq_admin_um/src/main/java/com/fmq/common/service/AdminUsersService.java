@@ -1,13 +1,16 @@
 package com.fmq.common.service;
 
-import com.fmq.common.dto.AdminUsersDTO; /**
+import com.fmq.common.dto.AdminUsersDTO;
+
+/**
  *
  * @author ljg
  *
  */
 public interface AdminUsersService {
+	void updateAdminUsers(AdminUsersDTO adminUsersDTO);
 
-    void saveAdminUsers(AdminUsersDTO adminUsersDTO);
+	void saveAdminUsers(AdminUsersDTO adminUsersDTO);
 
-	AdminUsersDTO getByUsername(String userName);
+	AdminUsersDTO getByUserUame(String userName);
 }

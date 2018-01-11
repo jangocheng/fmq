@@ -31,7 +31,11 @@ public interface UserInfoDao {
 	 */
 
 	UserDTO findById(@Param("id") String id);
-	
+	/**
+	 * 根据userName查询
+	 * @param userName
+	 * @return
+	 */
 	UserDTO getByUserName(@Param("userName") String userName);
 
 	/**

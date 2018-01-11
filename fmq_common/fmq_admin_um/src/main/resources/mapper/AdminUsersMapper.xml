@@ -35,7 +35,7 @@
 		from ADMIN_USERS
 		where id = #{id}
 	</select>
-	<select id="getByUsername" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<select id="getByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from ADMIN_USERS

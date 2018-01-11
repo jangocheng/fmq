@@ -15,14 +15,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminUsersServiceImpl extends BaseService implements AdminUsersService {
 
-    @Autowired
-    AdminUsersDao dao;
-    @Override
-    public void saveAdminUsers(AdminUsersDTO adminUsersDTO) {
-        dao.saveAdminUsers(adminUsersDTO);
-    }
+	@Autowired
+	AdminUsersDao dao;
+
 	@Override
-	public AdminUsersDTO getByUsername(String userName) {
-		return dao.getByUsername(userName);
+	public void saveAdminUsers(AdminUsersDTO adminUsersDTO) {
+		dao.saveAdminUsers(adminUsersDTO);
+	}
+
+	@Override
+	public void updateAdminUsers(AdminUsersDTO adminUsersDTO) {
+		dao.updateAdminUsers(adminUsersDTO);
+	}
+
+	@Override
+	public AdminUsersDTO getByUserUame(String userName) {
+		return dao.getByUserUame(userName);
 	}
 }
