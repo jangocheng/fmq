@@ -122,7 +122,16 @@
 				<artifactId>spring-security-oauth2</artifactId>
 				<version>2.2.1.RELEASE</version>
 			</dependency>
-
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.7.0</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.7.0</version>
+			</dependency>
 
 
 
@@ -151,7 +160,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<mainClass>com.fmq.common.StartApplication</mainClass>
-					<fork>true</fork><!-- 热部署生效必须加 -->
+					<!-- <fork>true</fork> --><!-- 热部署生效必须加 -->
 				</configuration>
 				<executions>
 					<execution>
